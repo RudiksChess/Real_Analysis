@@ -1,0 +1,260 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[top = 2.5cm, bottom = 2.5cm, left = 2.5cm, right = 2.5cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{multirow} 
+\usepackage{booktabs} 
+\usepackage{graphicx}
+\usepackage[spanish]{babel}
+\usepackage{setspace}
+\setlength{\parindent}{0in}
+\usepackage{float}
+\usepackage{fancyhdr}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{natbib}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{booktabs}
+\usepackage{etoolbox}
+\usepackage{apalike}
+\usepackage{minibox}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{tcolorbox}
+\usepackage{svg}
+\AtBeginEnvironment{align}{\setcounter{equation}{0}}
+\newenvironment{solution}
+  {\renewcommand\qedsymbol{$\square$}\begin{proof}[\textcolor{blue}{Solución}]}
+  {\end{proof}}
+
+\pagestyle{fancy}
+
+\fancyhf{}
+
+\lhead{\footnotesize Análisis de Variable Real 1}
+\rhead{\footnotesize  Rudik Roberto Rompich}
+\cfoot{\footnotesize \thepage}
+
+\begin{document}
+    \thispagestyle{empty} 
+    \begin{tabular}{p{15.5cm}}
+    \begin{tabbing}
+    \textbf{Universidad del Valle de Guatemala} \\
+    Departamento de Matemática\\
+    Licenciatura en Matemática Aplicada\\\\
+   \textbf{Estudiante:} Rudik Roberto Rompich\\
+   \textbf{E-mail:} \textcolor{blue}{ \href{mailto:rom19857@uvg.edu.gt}{rom19857@uvg.edu.gt}}\\
+   \textbf{Carné:} 19857
+    \end{tabbing}
+    \begin{center}
+        MM2034 - Análisis de Variable Real 1 - Catedrático: Dorval Carías\\
+        \today
+    \end{center}\\
+    \hline
+    \\
+    \end{tabular} 
+    \vspace*{0.3cm} 
+    \begin{center} 
+    {\Large \bf Parcial 2 - Revisión 
+} 
+        \vspace{2mm}
+    \end{center}
+    \vspace{0.4cm}
+%---------------------------
+
+
+%\begin{tcolorbox}[colback=gray!15,colframe=black!1!black,title=A nice heading]
+%\end{tcolorbox}
+
+%\fbox{lol}
+
+%----------------------------
+\section{Problema 1}
+\begin{enumerate}
+\item Utilice la definición para probar que $\lim _{n \rightarrow \infty} \frac{n^{2}+1}{n^{2}-5 n+7}=1$
+\begin{proof}
+\begin{align}
+\begin{split}
+    \left|\frac{n^2+1}{n^2-5n+7} -1\right| &=  \left|\frac{n^2+1-(n^2-5n+7)}{n^2-5n+7} \right| = \left|\frac{5n-6}{n^2-5n+7} \right|\\
+    &= \left|\frac{5n-6}{\left(n-\frac{5}{2}\right )^2+\frac{3}{4}} \right| = \frac{5n-6}{\left(n-\frac{5}{2}\right )^2+\frac{3}{4}}\\
+    &< \frac{5n-6}{\left(n-\frac{5}{2}\right )^2}
+\end{split}
+\intertext{Entonces: }
+\begin{split}
+\frac{5n-6}{\left(n-\frac{5}{2}\right )^2}<\epsilon &\implies 5n-6 <\epsilon\left(n-\frac{5}{2}\right )^2\\
+&\implies 5n-6 <\epsilon\left(n^2-5n+\frac{25}{4}\right )\\
+&\implies 20n-24 <4\epsilon\left(n^2-5n+\frac{25}{4}\right )\\
+&\implies 20n-24 <\epsilon\left(4n^2-20n+25\right )\\
+&\implies 4\epsilon n^2-20\epsilon n+25\epsilon -20n+24 >0\\
+&\implies 4\epsilon n^2-(20\epsilon+20)n+25\epsilon+24 >0
+\end{split}
+\intertext{Se tiene: $a=4\epsilon$, $b=-20(\epsilon+1)$ y $c=25\epsilon+24$. Aplicando la fórmula de Vieta:}
+\begin{split}
+    n= \frac{-b\pm \sqrt{b^2-4ac}}{2a} &=  \frac{20(\epsilon+1)\pm \sqrt{20^2(\epsilon+1)^2-4(4\epsilon)(25\epsilon+24)}}{2(4\epsilon)}\\
+    &=  \frac{20(\epsilon+1)\pm \sqrt{20^2(\epsilon+1)^2-400\epsilon^2-384\epsilon}}{8\epsilon}\\
+    &=  \frac{20(\epsilon+1)\pm \sqrt{416\epsilon+400}}{8\epsilon}\\
+    &=  \frac{20(\epsilon+1)\pm \sqrt{16(26\epsilon+25)}}{8\epsilon}\\
+    &=  \frac{20(\epsilon+1)\pm 4\sqrt{(26\epsilon+25)}}{8\epsilon}\\
+    &=  \frac{10(\epsilon+1)\pm 2\sqrt{(26\epsilon+25)}}{4\epsilon}\\
+    &=  \frac{5(\epsilon+1)\pm \sqrt{(26\epsilon+25)}}{2\epsilon}
+\end{split}
+\end{align}
+$\therefore$ Dado $\epsilon>0, \exists \quad n=\frac{5(\epsilon+1)\pm \sqrt{26\epsilon+25}}{2\epsilon}\in\mathbb{Z}^+$ si $ N\geq n$ $\implies |\frac{n^2+1}{n^2-5n+7}-1|<\epsilon$.
+\end{proof}
+\item Pruebe que la sucesión $a_{n}=(-1)^{n}$ diverge.
+\begin{tcolorbox}[colback=gray!15,colframe=gray!1!gray,title=Teorema (Criterio de la Divergencia)]
+Si una sucesión $X=(x_n)$ de números reales, tiene cualquiera de las siguientes dos propiedades, entonces $X$ es divergente. 
+\begin{enumerate}
+    \item $X$ tiene dos subsucesiones convergentes $X'=(x_{nk})$ y $X''=(x_{rk})$ de los cuales sus límites no son iguales. 
+    \item $X$ no es acotada.
+\end{enumerate}
+\end{tcolorbox}
+\begin{proof}
+ Se tiene $A=a_n=(-1)^n$. Es decir, se propone plantear los casos para $n$ pares e impares. Se tiene: $A'=(a_{2n})=(-1)^{2n}=\{1,1,1,...,1\}$ que converge a 1 y $A''=(a_{2n-1})=(-1)^{2n-1}=\{-1,-1,-1,...,-1\}$ que converge a -1. Por lo tanto, considerando el \text{Criterio de la Divergencia} inciso \textbf{a}, $(a_n)$ diverge.
+\end{proof}
+\end{enumerate}
+\section{Problema 2}  
+¿Es acotado el conjunto $\left\{\frac{1}{x^{2}-3}: x \in \mathbb{Q}\right\}$ ? Justifique su respuesta.
+\begin{tcolorbox}[colback=blue!15,colframe=red!1!blue,title=Definición (Subconjunto acotado)]
+Un subconjunto $S$ de $\mathbb{R}$ se dice que es acotado si existen $a,b\in\mathbb{R}$ tal que: $$\alpha\leq s\leq \beta\quad \forall s\in S$$
+\end{tcolorbox}
+
+\begin{figure}[htbp]
+  \centering
+  \includesvg[scale=0.4]{geogebra-export.svg}
+  \caption{Gráfica de $\frac{1}{x^2-3}$ con cotas en $x=\pm\sqrt{3}$}
+\end{figure}
+Intuitivamente (véase la Figura 1) se sabe que el conjunto $S$ no es acotado por las asíntotas verticales: 
+$$\lim_{x\to \sqrt{3}^+} S=\infty \quad \lim_{x\to \sqrt{3}^-} S=-\infty \quad\lim_{x\to -\sqrt{3}^+} S=-\infty \quad\lim_{x\to -\sqrt{3}^-} S=\infty \quad$$
+\begin{proof}
+Se nombrará al conjunto $S=\{\frac{1}{x^2-3}:x\in\mathbb{Q}\}$. Por contradicción, supóngase que $\beta =\sup S$. Nótese que $2\in S$, entonces se debe cumplir que $\beta \geq 2$. Ahora considérese $\beta+1$, es decir: 
+\begin{align}
+     \frac{1}{(\beta+1)^2-3} &= \frac{1}{\beta^2+2\beta+1-3}\\ &\leq\frac{1}{\beta^2-3+2(2)+1} =\frac{1}{\beta^2-3+5}\\
+     &<\frac{1}{\beta^2-3}\\
+     &<\sqrt{3}
+\end{align}
+Lo que quiere decir que $\beta+1\in S$. Causando una contradicción ya que $\beta=\sup S$.\\ $\therefore$ S no está acotada. 
+\end{proof}
+Discusión interesante: \textbf{\href{https://math.stackexchange.com/questions/4088277/the-set-frac1x2-3-x-in-mathbbq-is-bounded-explain}{https://math.stackexchange.com/questions/4088277/}}
+\section{Problema 3} Estudie la convergencia de la sucesión:
+$$
+x_{1}=2, x_{n+1}=\frac{1}{x_{n}}+\frac{x_{n}}{2}, n=1,2, \ldots
+$$
+En el caso que la sucesión sea convergente, encuentre el límite.
+\begin{tcolorbox}[colback=gray!15,colframe=gray!1!gray,title=Teorema de colas]
+Sea $X=(x_n: n\in\mathbb{N})$ una secuencia de números reales y sea $m\in\mathbb{N}$. Entonces la $m-$cola $X_m=(x_{m+n}:n\in\mathbb{N}$) de $X$ converge si y solo si $X$ converge. En este caso $\lim X_m=\lim X$.
+\end{tcolorbox}
+\begin{tcolorbox}[colback=gray!15,colframe=gray!1!gray,title=Teorema Convergencia Monótona]
+Una sucesión de números reales es convergente si y solo si es acotada. Además: 
+\begin{enumerate}
+    \item Si $X=(x_n)$ es una sucesión acotada creciente, entonces: 
+$$\lim(x_n)=\sup\{x_n:n\in\mathbb{N}\}$$
+\item Si $Y=(y_n)$ es una sucesión acotada decreciente, entonces: 
+$$\lim(y_n)=\inf\{y_n:n\in\mathbb{N}\}$$
+\end{enumerate}
+\end{tcolorbox}
+\begin{tcolorbox}[colback=gray!15,colframe=black!1!black,title=Convergencia numérica]
+\begin{align}
+    x_1&=2\\
+x_{2}&=\frac{1}{x_1}+\frac{x_1}{2}=\frac{3}{2}= 1.5\\
+x_{3}&=\frac{1}{x_2}+\frac{x_2}{2}=\frac{17}{12}\approx 1,417\\
+x_{4}&=\frac{1}{x_3}+\frac{x_3}{2}=\frac{577}{408}\approx1,414\\
+x_{5}&=\frac{1}{x_4}+\frac{x_4}{2}=\frac{665857}{470832}\approx1,414\\
+\vdots\\
+x_{n+1}&= \frac{1}{x_n}+\frac{x_n}{2}\approx 1.414
+\end{align}
+\end{tcolorbox}
+\begin{tcolorbox}[colback=gray!15,colframe=black!1!black,title=Puntos fijos]
+\begin{align}
+\intertext{Considerando el \textit{teorema de colas} se tiene $\lim x_{n+1}=\lim x_{n}=X$. Entonces: }
+&\implies X = \frac{1}{X}+\frac{X}{2}=\frac{2+X^2}{2X}\\
+&\implies 2X^2 =2+X^2\\
+&\implies X^2=2\\
+&\implies X=\sqrt{2}, -\sqrt{2}
+\end{align}
+Se nota que $X\neq -\sqrt{2}$. Por lo tanto, $X=\sqrt{2}$.
+\end{tcolorbox}
+
+\begin{proof}
+Al hacer un cálculo directo (véase el cuadro de \textit{convergencia numérica}) se muestra que $x_1=2,x_2=3/2, x_3=17/12,..., x_{n+1}\approx 1,414$. $\implies$ Se propone una acotación, tal que $\sqrt{2}<x_2<x_1$. Por inducción, se mostrará que $\sqrt{2}<x_n$ o $x_n>\sqrt{2}\quad\forall n\in\mathbb{N}$.
+\begin{align}
+    \intertext{Por el cuadro de \textit{convergencia numérica}, se sabe que la condición es válida para $n=1,2,3,4,5$. Ahora bien, si $n=k$:}
+    x_k&>\sqrt{2}\qquad k\in\mathbb{N}
+    \intertext{Se quiere probar que $x_{k+1} > x_k$:}
+    x_{k+1}&=\frac{1}{x_k}+\frac{x_k}{2}> \frac{1}{(\sqrt{2})}+\frac{(\sqrt{2})}{2}=\frac{4}{2\sqrt{2}}=\frac{2}{\sqrt{2}}=\sqrt{2}
+\intertext{tal que $x_{k+1}>\sqrt{2}$. Por lo tanto, $x_{n}>\sqrt{2}$ se cumple para $n\in\mathbb{N}$. Por lo que la sucesión es acotada. Ahora se quiere probar que la sucesión es monótona decreciente. Por inducción se mostrará que $x_n>x_{n+1}\quad \forall n\in\mathbb{N}$. Se sabe que la condición se cumple para $n=1,2,3,4,5$. Ahora, supóngase $x_k>x_{k+1}$ para algún $k$:}
+\implies& x_k > x_{k+1} \implies  \frac{x_k}{2}> \frac{x_{k+1}}{2}\\
+\implies& x_k > x_{k+1} \implies  \frac{1}{x_k}> \frac{1}{x_{k+1}}
+\intertext{Sumando (3) y (4) se tiene:}
+\begin{split}
+\implies& x_k+x_k>x_{k+1}+x_{k+1} \implies 2x_k>2x_{k+1} \implies x_k>x_{k+1}\\
+\implies & \frac{1}{x_k}+\frac{x_k}{2} > \frac{1}{x_{k+1}}+\frac{x_{k+1}}{2}
+\end{split}
+\intertext{Por lo consecuente, considerando (5) se tiene:}
+\implies & x_{k+1}= \frac{1}{x_k}+\frac{x_k}{2} > \frac{1}{x_{k+1}}+\frac{x_{k+1}}{2} = x_{k+2}
+\end{align}
+Se tiene que $x_k>x_{k+1}$ lo que implica $x_{k+1}>x_{k+2}$. Por lo tanto, $x_n>x_{n+1}\quad \forall n\in\mathbb{N}$; es decir, la secuencia es monótona decreciente. Se ha demostrado que la secuencia está acotada y es monótona decreciente. Por el \textit{teorema convergecia monótona}, sabemos que la sucesión $(x_n)$ es convergente a un límite de por lo menos $\sqrt{2}$. Por hipótesis se conoce $x_{n+1}=\frac{1}{x_n}+\frac{x_n}{2}\forall n\in N$, el $n-$ésimo término en la 1-cola de $x_1$ de $x$ tiene una simple relación algebraica al $n$-ésimo término de $x$. Por el cuadro de \textit{punto fijos} sabemos: 
+$$X=\frac{1}{X}+\frac{X}{2}$$
+del cual, se tiene $X=\lim{x_n}=\sqrt{2}$.
+\end{proof}
+
+\section{Problema 4} Suponga $\left(a_{n}\right)$ es una sucesión monótona que contiene una subsucesión que es de Cauchy.
+Demuestre que $\left(a_{n}\right)$ también es de Cauchy.
+\begin{tcolorbox}[colback=gray!15,colframe=gray!1!gray,title=Teorema Convergencia Monótona]
+Una sucesión de números reales es convergente si y solo si es acotada. Además: 
+\begin{enumerate}
+    \item Si $X=(x_n)$ es una sucesión acotada creciente, entonces: 
+$$\lim(x_n)=\sup\{x_n:n\in\mathbb{N}\}$$
+\item Si $Y=(y_n)$ es una sucesión acotada decreciente, entonces: 
+$$\lim(y_n)=\inf\{y_n:n\in\mathbb{N}\}$$
+\end{enumerate}
+\end{tcolorbox}
+\begin{tcolorbox}[colback=gray!15,colframe=gray!1!gray,title=Teorema de Bolzano-Weierstrass]
+Una sucesión acotada de números reales tiene una subsucesión convergente.
+\end{tcolorbox}
+\begin{tcolorbox}[colback=gray!15,colframe=gray!1!gray,title=Teorema de subsucesiones convergentes]
+Sea $X=(x_n)$ una subsucesión acotada de números reales y que un $x\in\mathbb{R}$ tenga la propiedad de que cada subsucesión convergente de $X$ converge a $x$. Entonces la sucesión $X$ converge a $x$.
+\end{tcolorbox}
+\begin{proof}
+Por hipótesis, se sabe que la sucesión es monótona ssi es acotada y que tiene una subsucesión de Cauchy, es decir que la subsucesión converge; por lo que se tiene el \textit{teorema de Bolzano-Weierstrass}. Ahora bien, considerando el \textit{teorema de subsucesiones convergentes}; se sabe que $(x_n)$ es acotada y que su única subsucesión es convergente, entonces $(x_n)$ también es convergente. Por lo tanto, por el criterio de Cauchy, una sucesión convergente también es de Cauchy. 
+\end{proof}
+\section{Problema 5} Suponga que la sucesión $\left(a_{n}\right)$ satisface la condición
+$$
+\left|a_{n+1}-a_{n+2}\right|<\lambda\left|a_{n}-a_{n+1}\right|
+$$
+con $\lambda \in(0,1) .$ Pruebe que $\left(a_{n}\right)$ converge.
+\begin{tcolorbox}[colback=blue!15,colframe=red!1!blue,title=Definición (Sucesión contractiva)]
+Se dice que una sucesión $(x_n)$ de números reales es \textit{contractiva} si existe una constante $C$, $0<C<1$, tal que $$|x_{n+2}-x_{n+1}|\leq C|x_{n+1}-x_n|$$ para todos los $n\in\mathbb{N}$. El número $C$ es llamado la constante de la sucesión contractiva.
+\end{tcolorbox}
+\begin{tcolorbox}[colback=blue!15,colframe=red!1!blue,title=Definición (sumatoria de una progresión geométrica)]
+Si $r\in\mathbb{R}, r\neq 1$ y $n\in\mathbb{N}$, entonces:
+$$1+r+r^2+...+r^n=\frac{1-r^{n+1}}{1-r}$$
+\end{tcolorbox}
+\begin{tcolorbox}[colback=gray!15,colframe=gray!1!gray,title=Teorema]
+Cada sucesión contractiva es una sucesión de Cauchy y por lo tanto, es convergente.
+\end{tcolorbox}
+\begin{tcolorbox}[colback=red!15,colframe=gray!1!red,title=Caso específico]
+Si $0<b<1$, entonces $\lim (b^n)=0$
+\end{tcolorbox}
+\begin{proof}
+Considérese el desarrollo hecho en el teorema 3.5.8 de \cite{bartle2000introduction}. Sin pérdida de generalidad, la condición se plantea como una \textit{sucesión contractiva}: $$|a_{n+2}-a_{n+1}|<\lambda|a_{n+1}-a_{n}|$$
+Se propone una serie de acotaciones: 
+$$|a_{n+2}-a_{n+1}|<\lambda|a_{n+1}-a_{n}|<\lambda^2|a_n-a_{n-1}<\lambda^3|a_{n-1}-a_{n-2}|<...<\lambda^n|a_2-a_1|$$
+
+Ahora, para $m>n$, se estima $\left|x_{m}-x_{n}\right|$ aplicando la desigualdad triangular y luego se utiliza la sumatoria de una \textit{progresión geométrica}: 
+
+\begin{align}
+\left|a_{m}-a_{n}\right| & \leq\left|a_{m}-a_{m-1}\right|+\left|a_{m-1}-a_{m-2}\right|+\cdots+\left|a_{n+1}-a_{n}\right| \\
+& \leq\left(\lambda^{m-2}+\lambda^{m-3}+\cdots+\lambda^{n-1}\right)\left|a_{2}-a_{1}\right| =\lambda^{n-1}\left(\frac{1-\lambda^{m-n}}{1-\lambda}\right)\left|a_{2}-a_{1}\right| \\
+& \leq \lambda^{n-1}\left(\frac{1}{1-\lambda}\right)\left|a_{2}-a_{1}\right|
+\end{align}
+
+Se sabe que $\lambda\in(0,1),$ entonces $\lim \left(\lambda^{n}\right)=0$ (veáse el caso específico). Por lo tanto, $\left(x_{n}\right)$ es una sucesiónde Cauchy. Considerando el criterio de Cauchy, se sabe que $\left(x_{n}\right)$ es una sucesión convergente.
+\end{proof}
+%---------------------------
+\bibliographystyle{apalike}
+\bibliography{sample.bib}
+
+\end{document}

@@ -1,0 +1,209 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[top = 2.5cm, bottom = 2.5cm, left = 2.5cm, right = 2.5cm]{geometry}
+% Unfortunately, LaTeX has a hard time interpreting German Umlaute. The following two lines and packages should help. If it doesn't work for you please let me know.
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+% The following two packages - multirow and booktabs - are needed to create nice looking tables.
+\usepackage{multirow} % Multirow is for tables with multiple rows within one cell.
+\usepackage{booktabs} % For even nicer tables.
+% As we usually want to include some plots (.pdf files) we need a package for that.
+\usepackage{graphicx}
+\usepackage{tikz}
+% The default setting of LaTeX is to indent new paragraphs. This is useful for articles. But not really nice for homework problem sets. The following command sets the indent to 0.
+\usepackage[spanish]{babel}
+\usepackage{setspace}
+\setlength{\parindent}{0in}
+% Package to place figures where you want them.
+\usepackage{float}
+% The fancyhdr package let's us create nice headers.
+\usepackage{fancyhdr}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{natbib}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{booktabs}
+\usepackage{etoolbox}
+\usepackage{amsthm}
+\AtBeginEnvironment{align}{\setcounter{equation}{0}}
+\newenvironment{solution}
+  {\renewcommand\qedsymbol{$\blacksquare$}\begin{proof}[Solución]}
+  {\end{proof}}
+\pagestyle{fancy}
+
+\fancyhf{}
+
+\lhead{\footnotesize Parcial 1}
+\rhead{\footnotesize  Rompich}
+\cfoot{\footnotesize \thepage}
+
+
+
+\begin{document}
+    \thispagestyle{empty} % This command disables the header on the first page.
+
+    \begin{tabular}{p{15.5cm}} % This is a simple tabular environment to align your text nicely
+    \begin{tabbing}
+    Universidad del Valle de Guatemala 
+    \\
+    Departamento de Matemática\\ Licenciatura en Matemática Aplicada \\ Fecha de entrega: 13 de febrero de 2021  \\
+    Rudik R. Rompich   - Carné: 19857\\
+    \end{tabbing}
+    Análisis de Variable Real 1 - Dorval Carías \\
+    \hline % \hline produces horizontal lines.
+    \\
+    \end{tabular} % Our tabular environment ends here.
+    \vspace*{0.3cm} % Now we want to add some vertical space in between the line and our title.
+    \begin{center} % Everything within the center environment is centered.
+    {\Large \bf Parcial 1 
+} % <---- Don't forget to put in the right number
+        \vspace{2mm}
+    \end{center}
+    \vspace{0.4cm}
+
+1. $(10 \mathrm{p})$ Se dice que $E \subset \mathbb{R}^{n}$ es convexo si cuando $x, y \in E \Rightarrow(1-\lambda) x+\lambda y \in E,$ para cada $0 \leq \lambda \leq 1$. Pruebe que las bolas en $\mathbb{R}^{n}$ son conjuntos convexos.
+\begin{proof}
+Por definición de una bola abierta/cerrada en $\mathbb{R}^n$ se tiene que su centro $x$ y su radio $r$ tal que se cumpla: $$|y-r|<r$$
+
+Entonces, tenemos que $x,y\in E$, asumamos que $y=(z-x)$ y $x=(y-x)$, entonces hacemos la substitución: 
+
+\begin{align}
+    |(1-\lambda)x+\lambda y| &= |(1-\lambda)(y-x)+\lambda (z-x)|
+\intertext{Por la desigualdad triangular:}
+                        &\leq (1-\lambda)|(y-x)| +\lambda |(z-x)|\\
+                        &= (1-\lambda)r+\lambda r\\
+                        &= r
+\end{align}
+$\therefore$ las bolas en $\mathbb{R}^n$ son conjuntos convexos.
+\end{proof}
+2. $\left(15\right.$ p) Sean $x, y, a, b \in \mathbb{R}^{+} y$ suponga que $\frac{x}{y}<\frac{a}{b} .$ Demuestre que $\frac{x}{y}<\frac{x+a}{y+b}<\frac{a}{b}$.
+
+\begin{proof}
+\begin{align}
+\intertext{Caso I}
+&=\frac{x}{y}<\frac{x+a}{y+b}\implies x(y+b)<(x+a) y \Rightarrow \\
+& \Rightarrow x y+x b<x y+a y \Rightarrow x b<a y \Rightarrow \frac{x}{y}<\frac{a}{b} \\
+\intertext{Caso 2}
+& \frac{x+a}{x+b}<\frac{a}{b} \Rightarrow(x+a) b<a(x+b) \\
+\Rightarrow & x b+a b<a y+a b=>\quad x b<a y\implies \\
+\Rightarrow & \frac{x}{y}<\frac{a}{b} \\
+\therefore & \frac{x}{y}<\frac{x+a}{x+b}<\frac{a}{b}
+\end{align}
+\end{proof}
+3. (15 p) Sea $E$ un subconjunto no vacío del conjunto de números reales que está acotado superiormente. Si $y=\sup (E),$ pruebe que $y \in \bar{E}$
+
+\begin{proof}
+Si $y=sup(E)$, a probar: $y\in\overline{E}$ ($\overline{E}= E$ cerrado). Consideremos por el absurdo $y\not\in \overline{E}$. Sabemos que $\forall \xi>0\exists  x \in E\ni y-\xi <x<y$, eso implicaría que $y-\xi$ es una cota superior $(\to\gets)$. Entonces, $y$ es un punto de acumulación de $E$. $\therefore y\in\overline{E}$
+\end{proof}
+4. $(20$ p) Sean $A, B \subset \mathbb{R},$ acotados y no vacíos. Demuestre que:
+$$
+\sup (A+B)=\sup (A)+\sup (B)
+$$
+
+\begin{proof}
+Supóngase las siguientes variables: $p=\sup A, q=\sup B, r=\sup (A+B).$ Ahora, asumamos que existe un $a \in A$ y un $b \in B$. Entonces, sabemos por la definición de supremo que $a\leq p$ y que $b\leq q$, entonces aplicando una sumatoria a ambas variables: $a+b \leq p+q,$ tal que  $r \leq p+q$ se cumple.\newline
+
+Por otra parte, sabemos que $b \in B$ lo que quiere decir que $a \leq r-b$ $\quad \forall a \in A$; que afirma que $r-b$ es una cota superior para $A$ tal que $p \leq r-b .$ Entonces, $y \leq r-p$ $\forall b \in B,$ entonces $q \leq r-p$ y por lo tanto $p+q \leq q .$ Al combinar estas dos desigualdades, finalmente tenemos que $w=p+q$, es decir: $$\sup (A+B)= \sup A+\sup B$$
+\end{proof}
+
+5. $(20 \mathrm{p})$ Sean $A$ y $B$ subconjuntos de un espacio métrico $X$.
+\begin{enumerate}
+\item 5.1. Pruebe que $(\operatorname{int}(A))^{c}=\overline{\left(A^{c}\right)}$
+\begin{proof}
+\begin{align}
+\intertext{Se procede por medio de la doble contención:}
+    \intertext{De ida $\subseteq$}
+    x\in (int(A))^c\implies x\not\in int(A)\implies x\in \overline{(A^c)}\implies (\operatorname{int}(A))^{c}\subseteq \overline{\left(A^{c}\right)}
+    \intertext{De regreso $\supseteq$}
+    x\in \overline{(A^c)}\implies x\not\in int(A)\implies x\in (int(A))^c
+\end{align}
+\end{proof}
+\item 5.2. ¿Es cierto que $\operatorname{int}(A \cap B)=\bar{A} \cap \bar{B}$ ?
+\begin{proof}
+Supóngase un contraejemplo en donde $A=[0,5]$ y $B=[4,5]$, tal que: 
+\begin{align}
+    A= [0,5] \qquad & \qquad B=[4,5]\\
+    \overline{A}= [0,5] \qquad & \qquad \overline{B}=[4,5]\\
+    \intertext{Es decir:}
+    A\cap B= [4,5]\qquad & \qquad \overline{A}\cap \overline{B}=[4,5] 
+    \\
+    \text{int}(A\cap B) = (4,5) &\\
+\intertext{Esto implica que:}
+            \text{int}(A\cap B) \neq \overline{A}\cap \overline{B}
+\end{align}
+Lo que implica que no es cierta la igualdad. 
+\end{proof}
+
+\end{enumerate}
+6. $(20 \mathrm{p})$ Sea $(X, d)$ un espacio métrico. Se define $D(x, y)=\min (1, d(x, y))$.
+\begin{enumerate}
+    
+\item 6.1. Pruebe que $D$ es una métrica sobre $X$.
+\begin{proof}
+Por definición de espacio métrico tenemos, asumiendo $d(x,y)=D(x,y)$: 
+\begin{enumerate}
+    \item $d(x,y)\geq 0$ o $d(x,y)=0\leftrightarrow x=y$. Entonces, tenemos 2 casos para $min(1,d(x,y))$:
+    \begin{enumerate}
+        \item (i) donde $min(1,d(x,y))\geq0$, se cumple.
+        \item (ii) $min(1,d(x,y))=0$, se cumple.
+    \end{enumerate}
+    Por lo que se cumple la propiedad.
+    \item $d(x,y)=d(y,x)$. Por lo que se tiene que $min(1,d(x,y))=min(1,d(y,x))$, cumpliendo la propiedad. 
+    \item $d(x,y)\leq d(x,z)+d(z,y)$
+    \begin{align}
+    \intertext{Entonces, tenemos:}
+    min(1,d(x,y))&\leq min(1,d(x,z))+min(1,d(z,y))\\
+                 &= min(2,1+d(x,z),1+d(z,y),d(x,z)+d(z,y))\\
+                 &= min(1, d(x,y))
+\end{align} Cumpliendo la propiedad.
+\end{enumerate}
+$\therefore$ D es una métrica sobre $X$.
+\end{proof}
+
+
+\item  Si $(X, d)$ es $\mathbb{R}^{2}$ con su métrica usual, describa las bolas abiertas $B_{r}(0)$ en $\left(\mathbb{R}^{2}, D\right)$.
+\begin{proof}
+Considerando $\mathbb{R}^2=(X,d)$ con su métrica usual y por otra parte las bolas abiertas $B_r(0)$ en $(\mathbb{R}^2,D)$: 
+\begin{center}
+    
+
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
+
+%Shape: Axis 2D [id:dp03572607489642943] 
+\draw  (118,168.78) -- (268.4,168.78)(133.04,39) -- (133.04,183.2) (261.4,163.78) -- (268.4,168.78) -- (261.4,173.78) (128.04,46) -- (133.04,39) -- (138.04,46)  ;
+%Shape: Circle [id:dp6961920690950962] 
+\draw  [dash pattern={on 4.5pt off 4.5pt}] (66.35,168.78) .. controls (66.35,131.95) and (96.21,102.09) .. (133.04,102.09) .. controls (169.87,102.09) and (199.72,131.95) .. (199.72,168.78) .. controls (199.72,205.61) and (169.87,235.46) .. (133.04,235.46) .. controls (96.21,235.46) and (66.35,205.61) .. (66.35,168.78) -- cycle ;
+%Shape: Circle [id:dp1140776417552336] 
+\draw  [dash pattern={on 4.5pt off 4.5pt}] (46.35,168.62) .. controls (46.35,120.83) and (85.09,82.09) .. (132.88,82.09) .. controls (180.66,82.09) and (219.4,120.83) .. (219.4,168.62) .. controls (219.4,216.4) and (180.66,255.14) .. (132.88,255.14) .. controls (85.09,255.14) and (46.35,216.4) .. (46.35,168.62) -- cycle ;
+%Shape: Circle [id:dp4692514086884123] 
+\draw  [dash pattern={on 4.5pt off 4.5pt}] (28.41,168.62) .. controls (28.41,110.92) and (75.18,64.15) .. (132.88,64.15) .. controls (190.57,64.15) and (237.35,110.92) .. (237.35,168.62) .. controls (237.35,226.31) and (190.57,273.09) .. (132.88,273.09) .. controls (75.18,273.09) and (28.41,226.31) .. (28.41,168.62) -- cycle ;
+%Straight Lines [id:da04123564015603709] 
+\draw [color={rgb, 255:red, 255; green, 5; blue, 5 }  ,draw opacity=1 ]   (133.04,168.78) .. controls (133.03,166.42) and (134.21,165.24) .. (136.57,165.24) .. controls (138.93,165.24) and (140.11,164.06) .. (140.1,161.7) .. controls (140.09,159.34) and (141.27,158.16) .. (143.63,158.16) .. controls (145.99,158.16) and (147.17,156.98) .. (147.16,154.62) .. controls (147.15,152.26) and (148.33,151.08) .. (150.69,151.08) .. controls (153.05,151.07) and (154.23,149.89) .. (154.22,147.53) .. controls (154.21,145.17) and (155.39,143.99) .. (157.75,143.99) .. controls (160.11,143.99) and (161.29,142.81) .. (161.28,140.45) .. controls (161.27,138.09) and (162.45,136.91) .. (164.81,136.91) .. controls (167.17,136.91) and (168.35,135.73) .. (168.34,133.37) .. controls (168.33,131.01) and (169.51,129.83) .. (171.87,129.83) .. controls (174.23,129.83) and (175.41,128.65) .. (175.4,126.29) .. controls (175.39,123.93) and (176.57,122.75) .. (178.93,122.75) .. controls (181.29,122.75) and (182.47,121.57) .. (182.46,119.21) .. controls (182.45,116.85) and (183.63,115.67) .. (185.99,115.67) .. controls (188.35,115.66) and (189.53,114.48) .. (189.52,112.12) .. controls (189.51,109.76) and (190.69,108.58) .. (193.05,108.58) .. controls (195.41,108.58) and (196.59,107.4) .. (196.58,105.04) -- (197.34,104.28) -- (202.99,98.62) ;
+\draw [shift={(204.4,97.2)}, rotate = 494.91] [color={rgb, 255:red, 255; green, 5; blue, 5 }  ,draw opacity=1 ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+
+% Text Node
+\draw (214,44.1) node [anchor=north west][inner sep=0.75pt]    {$\mathbb{R}^{2} \ =( X,d)$};
+% Text Node
+\draw (27,59.1) node [anchor=north west][inner sep=0.75pt]    {$B_{r}( 0)$};
+% Text Node
+\draw (83,147.1) node [anchor=north west][inner sep=0.75pt]  [font=\footnotesize]  {$\left(\mathbb{R}^{2} ,D\right)$};
+% Text Node
+\draw (258,177.1) node [anchor=north west][inner sep=0.75pt]    {$x$};
+% Text Node
+\draw (112,36.1) node [anchor=north west][inner sep=0.75pt]    {$y$};
+% Text Node
+\draw (154,116.1) node [anchor=north west][inner sep=0.75pt]  [color={rgb, 255:red, 255; green, 3; blue, 3 }  ,opacity=1 ]  {$r$};
+
+
+\end{tikzpicture}
+\end{center}
+\end{proof}
+
+\end{enumerate}
+
+Las bolas se podrían describir como $B_r(0)=\{x\in \mathbb{R}^2 : D(X,0)<r\} = \{x\in \mathbb{R}^2 : min(1,d(x,0)<r\}$.
+
+\end{document}
