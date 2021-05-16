@@ -1,0 +1,61 @@
+\input{Configuraciones/paquetes}
+\begin{document}
+\input{Configuraciones/nombres}
+%--------------------------
+Esta hoja de trabajo se resolvió en un video, se puede encontrar aquí:\\ \textcolor{blue}{\href{https://www.youtube.com/watch?v=nSHzDTNnpCk}{https://www.youtube.com/watch?v=nSHzDTNnpCk}}
+\begin{tcolorbox}[colback=black!15,colframe=black!1!black,title=Problema]
+La función de \text{Takagi - Van der Waerden} se define como, 
+$$f_r(x):= \sum_{n=0}^{\infty}\frac{1}{r^n}\psi(r^nx), \qquad r=2,3,...$$
+donde $\psi(x)=\text{dist}(x, \mathbb{Z})$, la distancia de $x$ al entero más cercano. Determinar que es continua para todos los reales $x$ pero no es diferenciable para ningún real $x$. 
+
+\end{tcolorbox}
+\begin{proof}
+\end{proof}
+
+
+Para demostrar continuidad, se puede consultar la demostración de \cite{shidfar1990holder}. Para demostrar que no es diferenciable se tomará como referencia el caso general de \cite{spurrier2004continuous}; a la vez, se tomará como referencia el caso específico 
+$$f_r(x):= \sum_{n=0}^{\infty}\frac{1}{r^n}\psi(r^nx), \qquad r=2,3,...$$
+desarrollado por \cite{allaart2014level}: \newline
+
+« Considerando \cite{billingsley1982van}, asúmase $\psi_{k}(x):=r^{-k} \psi\left(r^{k} x\right), k \in \mathbb{Z}_{+}$, y sea $\psi_{k}^{+}(x)$ denota la derivada del lado derecho de $\psi_{k}$ en $x$. Entonces $\psi_{k}^{+}$ no es ambigua y evaluada en $\{-1,1\}$. Se fija $x \in[0,1)$, y para cada $n \in \mathbb{N}$, sea $u_{n}=j_{n} / 2 r^{n}$ y $v_{n}=\left(j_{n}+1\right) / 2 r^{n}$, donde $j_{n} \in \mathbb{Z}_{+}$  es elegido tal que $u_{n} \leq x<v_{n} .$ Nótese que para $k \leq n$ $\psi_{k}$ es lineal en $\left[u_{n}, v_{n}\right]$, entonces
+$$
+\frac{\psi_{k}\left(v_{n}\right)-\psi_{k}\left(u_{n}\right)}{v_{n}-u_{n}}=\psi_{k}^{+}(x), \quad 0 \leq k \leq n
+$$
+Primero supóngase que $r$ es par; entonces $\psi_{k}\left(v_{n}\right)-\psi_{k}\left(u_{n}\right)=0$ para $k>n$, y entonces
+$$
+m_{n}:=\frac{f_{r}\left(v_{n}\right)-f_{r}\left(u_{n}\right)}{v_{n}-u_{n}}=\sum_{k=0}^{\infty} \frac{\psi_{k}\left(v_{n}\right)-\psi_{k}\left(u_{n}\right)}{v_{n}-u_{n}}=\sum_{k=0}^{n} \psi_{k}^{+}(x)
+$$
+Esto implica que $m_{n+1}-m_{n}=\pm 1$, y entonces $m_{n}$ no puede tener un límite finito. Ahora supóngase que $r$ es impar. Entonces para $k \geq n$
+$$
+\psi_{k}\left(v_{n}\right)-\psi_{k}\left(u_{n}\right)=\frac{(-1)^{j_{n}}}{2 r^{k}}
+$$
+usando la 1-periocidad de $\psi .$ Por lo que, desde que sabemos que $v_{n}-u_{n}=1 / 2 r^{n}$,
+$$
+m_{n}:=\frac{f_{r}\left(v_{n}\right)-f_{r}\left(u_{n}\right)}{v_{n}-u_{n}}=\sum_{k=0}^{n-1} \psi_{k}^{+}(x)+(-1)^{j_{n}} \sum_{k=n}^{\infty} \frac{1}{r^{k-n}}=\sum_{k=0}^{n-1} \psi_{k}^{+}(x)+(-1)^{j_{n}} \frac{r}{r-1}
+$$
+Ahora es claro que $m_{n+1}-m_{n}$  puede tomar solo valores finitos, el cero no es uno de ellos, y por lo que $m_{n}$ no puede tener un límite finito definido: $n \rightarrow \infty$. Por lo tanto, $f_{r}$ no tiene una derivada finita$x$. No es diferenciable.»
+
+
+
+\newpage
+Referencias utilizadas: 
+
+\begin{enumerate}
+    \item \cite{allaart2012takagi}
+    \item \cite{allaart2014level}
+    \item \cite{bl1930einfaches}
+    \item \cite{hailpern1976continuous}
+    \item \cite{jarnicki2015continuous}
+    \item \cite{rajwade2007surprises}
+    \item \cite{takagi1973simple}
+    \item \cite{bl1930einfaches}
+    \item \cite{shidfar1990holder}
+    \item \cite{billingsley1982van}
+\end{enumerate}
+
+
+%---------------------------
+\bibliographystyle{apalike}
+\bibliography{sample.bib}
+
+\end{document}
