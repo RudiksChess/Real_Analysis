@@ -1,0 +1,42 @@
+\section{Problema 4.} Sea $f(x)$ una función diferenciable en $a$. Encuentre:
+$$\lim _{n \rightarrow a} \frac{a^{n} f(x)-x^{n} f(a)}{x-a}, n \in \mathbb{Z}^{+}.$$
+
+\begin{proof}
+Considérese la definición de diferenciabilidad de \cite{bartle2000introduction}, por lo cual sabemos: 
+$$f'(a)=\lim_{n\to a}\frac{f(x)-f(a)}{x-a}$$
+
+Por otra parte, también se considerará el caso en donde, 
+\begin{align*}
+    \lim_{n\to a}\frac{x^n-a^n}{x-a} &= \lim_{n\to a}\frac{(x-a)(x^{n-1}+x^{n-2}a+\cdots + xa^{n-2}+a^{n-1})}{x-a} \\
+    &= \lim_{n\to a}(x^{n-1}+x^{n-2}a+\cdots + xa^{n-2}+a^{n-1})\\
+    &= a^{n-1}+a^{n-2}a+\cdots + aa^{n-2}+a^{n-1}\\
+    &= a^{n-1}+a^{n-1}+\cdots + a^{n-1}+a^{n-1}\\
+    &= na^{n-1}
+\end{align*}
+\begin{tcolorbox}[colback=blue!15,colframe=blue!1!blue,title=Definición 6.1.1. de \cite{bartle2000introduction}]
+Let $I \subseteq \mathbb{R}$ be an interval, let $f: I \rightarrow \mathbb{R}$, and let $c \in I$. We say that a real number $L$ is the derivative of $f$ at $c$ if given any $\varepsilon>0$ there exists $\delta(\varepsilon)>0$ such that if $x \in I$ satisfies $0<|x-c|<\delta(\varepsilon)$, then
+$$
+\left|\frac{f(x)-f(c)}{x-c}-L\right|<\varepsilon
+$$
+In this case we say that $f$ is differentiable at $c$, and we write $f^{\prime}(c)$ for $L$. In other words, the derivative of $f$ at $c$ is given by the limit
+$$
+f^{\prime}(c)=\lim _{x \rightarrow c} \frac{f(x)-f(c)}{x-c}
+$$
+provided this limit exists. (We allow the possibility that $c$ may be the endpoint of the interval.)
+\end{tcolorbox}
+
+
+
+
+Entonces, el límite se puede expresar de la siguiente manera: 
+\begin{align*}
+    \lim _{n \rightarrow a} \frac{a^{n} f(x)-x^{n} f(a)}{x-a} &=\lim _{n \rightarrow a}\frac{a^n f(x)-a^nf(a)+a^nf(a)-x^nf(a)}{x-a} \\
+   &=  \lim _{n \rightarrow a}\frac{(a^n f(x)-a^nf(a))-(x^nf(a)-a^nf(a))}{x-a}\\
+   &= \lim _{n \rightarrow a}\frac{a^n f(x)-a^nf(a)}{x-a} -\lim _{n \rightarrow a}\frac{x^nf(a)-a^nf(a)}{x-a}\\
+   &= \lim _{n \rightarrow a}\frac{a^n( f(x)-f(a))}{x-a} -\lim _{n \rightarrow a}\frac{f(a)(x^n-a^n)}{x-a}\\
+  &= a^n\lim _{n \rightarrow a}\frac{ f(x)-f(a)}{x-a} -f(a)\lim _{n \rightarrow a}\frac{x^n-a^n}{x-a}\\
+  &= a^nf'(a)-na^{n-1}f(a), \qquad n\in\mathbb{Z^+}.
+\end{align*}
+\end{proof}
+
+

@@ -1,0 +1,55 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[top = 2.5cm, bottom = 2.5cm, left = 2.5cm, right = 2.5cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{multirow} 
+\usepackage{booktabs} 
+\usepackage{graphicx}
+\usepackage{mathtools}
+\usepackage[spanish]{babel}
+\usepackage{setspace}
+\setlength{\parindent}{0in}
+\usepackage{float}
+\usepackage{fancyhdr}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{natbib}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{booktabs}
+\usepackage{etoolbox}
+\usepackage{apalike}
+\usepackage{minibox}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{tcolorbox}
+\usepackage{svg}
+\usepackage{tikz}
+\usepackage[framemethod=default]{mdframed}
+\global\mdfdefinestyle{exampledefault}{%
+linecolor=lightgray,linewidth=1pt,%
+leftmargin=1cm,rightmargin=1cm,
+}
+\newenvironment{noter}[1]{%
+\mdfsetup{%
+frametitle={\tikz\node[fill=white,rectangle,inner sep=0pt,outer sep=0pt]{#1};},
+frametitleaboveskip=-0.5\ht\strutbox,
+frametitlealignment=\raggedright
+}%
+\begin{mdframed}[style=exampledefault]
+}{\end{mdframed}}
+\newcommand{\linea}{\noindent\rule{\textwidth}{3pt}}
+\newcommand{\linita}{\noindent\rule{\textwidth}{1pt}}
+
+\AtBeginEnvironment{align}{\setcounter{equation}{0}}
+\newenvironment{solution}
+  {\renewcommand\qedsymbol{$\square$}\begin{proof}[\textcolor{blue}{Solución}]}
+  {\end{proof}}
+\pagestyle{fancy}
+
+\fancyhf{}
+%----------------------------------------------------------
+\lhead{\footnotesize Análisis de Variable Real 1}
+\rhead{\footnotesize  Rudik Roberto Rompich}
+\cfoot{\footnotesize \thepage}

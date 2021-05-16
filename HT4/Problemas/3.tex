@@ -1,0 +1,37 @@
+\section{Problema 3.} Pruebe que si la función $f: I \rightarrow \mathbb{R}$ tiene derivada acotada sobre $I$, entonces $f$ es
+uniformemente continua sobre $I$.
+
+\begin{proof}
+A probar: $f$ es uniformemente continua sobre $I$. Por hipótesis, tenemos que $f$ tiene derivada acotada sobre $I$, que se puede expresar como: $$|f'(x)|\leq M,\qquad \forall \ x\in I.$$
+
+Notamos que se cumplen las condiciones para aplicar el teorema del Valor Medio de \cite{bartle2000introduction}.
+\begin{tcolorbox}[colback=gray!15,colframe=gray!1!gray,title=Teorema del Valor Medio 6.2.4 de \cite{bartle2000introduction}.]
+Suppose that $f$ is continuous on a closed interval $I:=[a, b]$, and that $f$ has a derivative in the open interval $(a, b) .$ Then there exists at least one point $c$ in $(a, b)$ such that
+$$
+f(b)-f(a)=f^{\prime}(c)(b-a)
+$$
+\end{tcolorbox}
+
+Ahora, nos interesa que la función sea Lipschitz para aplicar ciertas propiedades previamente demostradas en clase. Entonces, sean $a,b\in I$, tal que: 
+\begin{align*}
+    |f(b)-f(a)|&=|f'(c)||b-a|\\
+               &= |f'(c)(b-a)|\\
+               &\leq K|b-a|.
+\end{align*}
+
+
+\begin{tcolorbox}[colback=blue!15,colframe=blue!1!blue,title=Definición 5.4.4 de \cite{bartle2000introduction}.]
+Let $A \subseteq \mathbb{R}$ and let $f: A \rightarrow \mathbb{R}$. If there exists a constant $K>0$ such that
+$$
+|f(x)-f(u)| \leq K|x-u|
+$$
+for all $x, u \in A$, then $f$ is said to be a Lipschitz function (or to satisfy a Lipschitz condition) on $A$.
+\end{tcolorbox}
+
+Ahora bien, ya que sabemos que es una función Lipschitz, podemos aplicar el teorema 5.4.5 de \cite{bartle2000introduction}.
+\begin{tcolorbox}[colback=gray!15,colframe=gray!1!gray,title=Teorema 5.4.5 de \cite{bartle2000introduction}.]
+If $f: A \rightarrow \mathbb{R}$ is a Lipschitz function, then $f$ is uniformly continuous on $A$
+\end{tcolorbox}
+$\therefore \ f$ es uniformemente continua sobre $I$.  
+
+\end{proof}

@@ -1,0 +1,53 @@
+\section{Problema 1.} Sea $f:(0,1) \rightarrow \mathbb{R}$ una función continua que satisface $[f(x)]^{2}=1, \forall x \in(0,1)$. Pruebe
+que $f \equiv 1$ o $f \equiv-1$.
+\begin{noter}{Notación}
+$f \equiv 1$ hace referencia a:
+$$f(x)=1, \qquad \forall \ x\in(0,1).$$
+Análogamente, $f \equiv -1$ hace referencia a:
+$$f(x)=-1, \qquad \forall \ x\in(0,1).$$
+\end{noter}
+\begin{proof}
+A probar: $f\equiv 1$ o $f\equiv-1$. Sabemos que $f(x)$ es una función continua, en donde, 
+$$[f(x)]^2=f(x)f(x).$$
+Por el inciso a del teorema 5.2.2 de \cite{rudin1976principles} entonces $[f(x)]^2$ debe ser continua en (0,1) también. 
+\begin{tcolorbox}[colback=gray!15,colframe=gray!1!gray,title=Teorema 5.2.2 de \cite{bartle2000introduction}]
+Let $A \subseteq \mathbb{R}$, let $f$ and $g$ be continuous on $A$ to $\mathbb{R}$, and let $b \in \mathbb{R}$.
+\begin{enumerate}
+    \item The functions $f+g, f-g, f g$, and bf are continuous on A.
+    \item If $h: A \rightarrow \mathbb{R}$ is continuous on $A$ and $h(x) \neq 0$ for $x \in A$, then the quotient $f / h$ is continuous on $A$.
+\end{enumerate}
+\end{tcolorbox}
+Ahora bien, nótese que:
+$$\implies [f(x)]^2=1 \implies f(x)= \pm \sqrt{1} = \pm 1, \qquad \forall \ x\in(0,1).$$
+Considérese la definición 6.1.1 de diferenciabilidad de \cite{bartle2000introduction}. 
+\begin{tcolorbox}[colback=blue!15,colframe=blue!1!blue,title=Definición 6.1.1. de \cite{bartle2000introduction}]
+Let $I \subseteq \mathbb{R}$ be an interval, let $f: I \rightarrow \mathbb{R}$, and let $c \in I$. We say that a real number $L$ is the derivative of $f$ at $c$ if given any $\varepsilon>0$ there exists $\delta(\varepsilon)>0$ such that if $x \in I$ satisfies $0<|x-c|<\delta(\varepsilon)$, then
+$$
+\left|\frac{f(x)-f(c)}{x-c}-L\right|<\varepsilon
+$$
+In this case we say that $f$ is differentiable at $c$, and we write $f^{\prime}(c)$ for $L$. In other words, the derivative of $f$ at $c$ is given by the limit
+$$
+f^{\prime}(c)=\lim _{x \rightarrow c} \frac{f(x)-f(c)}{x-c}
+$$
+provided this limit exists. (We allow the possibility that $c$ may be the endpoint of the interval.)
+\end{tcolorbox}
+
+Sea $c\in (0,1)$. Dado un $\epsilon>0$ tal que exista $\delta(\epsilon)>0$, entonces tenemos 2 casos ($f(x)=\pm 1$): 
+\begin{enumerate}
+    \item $$\left|\frac{f(x)-f(c)}{x-c}\right|=\left|\frac{1-1}{x-c}\right|=0<\epsilon$$
+    \item  $$\left|\frac{f(x)-f(c)}{x-c}\right|=\left|\frac{(-1)-(-1)}{x-c}\right|=0<\epsilon$$
+\end{enumerate}
+$\implies f$ es diferenciable en $c$ y $f'(c)=0$.  
+$\implies$ Ahora tomemos en cuenta el inciso 2 del teorema 5.11 de \cite{rudin1976principles}.
+\begin{tcolorbox}[colback=gray!15,colframe=gray!1!gray,title=Teorema 5.11 de \cite{rudin1976principles}]
+Suppose $f$ is differentiable in $(a, b)$.
+\begin{enumerate}
+    \item If $f^{\prime}(x) \geq 0$ for all $x \in(a, b)$, then $f$ is monotonically increasing.
+    \item If $f^{\prime}(x)=0$ for all $x \in(a, b)$, then $f$ is constant.
+    \item If $f^{\prime}(x) \leq 0$ for all $x \in(a, b)$, then $f$ is monotonically decreasing.
+\end{enumerate}
+\end{tcolorbox}
+$\implies f$ es constante en $(0,1)$. Ahora tenemos que $f(x)=c, \quad \forall \ x\in(0,1)$. Por lo cual, regresamos a la expresión original, en donde:
+$$\implies [c]^2=1 \implies c=\pm\sqrt{1}\implies c=\pm 1.$$
+$\therefore \ f\equiv 1$ o $f\equiv-1$. 
+\end{proof}

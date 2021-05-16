@@ -1,0 +1,42 @@
+\section{Problema 5.} Sea $f:[0,1] \rightarrow \mathbb{R}$ una función continua y diferenciable en $(0,1)$ que satisface:
+\begin{enumerate}
+    \item $f(0)=0.$
+    \item Existe $M>0$ tal que $\left|f^{\prime}(x)\right| \leq M|f(x)|, x \in(0,1)$
+\end{enumerate}
+ Demuestre que $f(x)=0, x \in[0,1].$
+ 
+ \begin{proof} Supóngase por contradicción que $f(x)\neq 0$ en el intervalo $[0,1]$. Como la función es continua en el intervalo $[0, 1]$, el teorema 5.3.4 de \cite{bartle2000introduction} nos asegura que debe haber un máximo y un mínimo absoluto en $[0,1]$.
+ 
+ \begin{tcolorbox}[colback=gray!15,colframe=gray!1!gray,title=Teorema 5.3.4 (Máximo-Mínimo) de \cite{bartle2000introduction}]
+Let I := $[a, b]$ be a closed bounded interval and let $f: I \rightarrow \mathbb{R}$ be continuous on I. Then $f$ has an absolute maximum and an absolute minimum on $I$.
+\end{tcolorbox}
+\begin{tcolorbox}[colback=blue!15,colframe=blue!1!blue,title=Definición 5.3.3 de \cite{bartle2000introduction}]
+Let $A \subseteq \mathbb{R}$ and let $f: A \rightarrow \mathbb{R}$. We say that $f$ has an absolute maximum on $A$ if there is a point $x^{*} \in A$ such that
+$$
+f\left(x^{*}\right) \geq f(x) \quad \text { for all } \quad x \in A
+$$
+We say that $f$ has an absolute minimum on $A$ if there is a point $x_{*} \in A$ such that
+$$
+f\left(x_{*}\right) \leq f(x) \quad \text { for all } \quad x \in A
+$$
+We say that $x^{*}$ is an absolute maximum point for $f$ on $A$, and that $x_{*}$ is an absolute minimum point for $f$ on $A$, if they exist.
+\end{tcolorbox}
+ 
+  $\implies$ Existe un máximo  y un mínimo en absoluto. Sea el máximo absoluto $b\in[0,1]$ tal que $|f(b)|\geq M|f(x)|,\quad  \forall \ x\in [0,1]$. Sin pérdida de generalidad, asumamos que, 
+  $$f(b)>0.$$
+  
+  Además, notamos que se cumplen las condiciones para aplicar el teorema del Valor Medio de \cite{bartle2000introduction} en el intervalo $[0,b]$, en donde $b$ tiene 2 casos posibles: (1) $b<1$, (2) $b=1$. El caso en donde $b>1$ lo descartamos porque queda fuera del intervalo $[0,1]$.
+\begin{tcolorbox}[colback=gray!15,colframe=gray!1!gray,title=Teorema del Valor Medio 6.2.4 de \cite{bartle2000introduction}.]
+Suppose that $f$ is continuous on a closed interval $I:=[a, b]$, and that $f$ has a derivative in the open interval $(a, b) .$ Then there exists at least one point $c$ in $(a, b)$ such that
+$$
+f(b)-f(a)=f^{\prime}(c)(b-a)
+$$
+\end{tcolorbox}
+ $\implies$ Tenemos $f(b)-f(0)=f'(c)(b-0)$. Despejamos para $f'(c)$ tal que, 
+ $$f'(c)=\frac{f(b)-f(0)}{b-0}=\frac{f(b)}{b}$$
+ Entonces, analizamos los casos individualmente: 
+\begin{enumerate}
+    \item Si $b<1$ entonces $f'(c)=f(b)/ b>f(b)\geq M|f(c)|$, en donde contradice que $$|f'(x)|\leq M|f(c)|.$$
+    \item Si $b=1$ entonces $f'(c)=f(b)/1>|f(c)|$, en donde a contradice que $$|f'(x)|\leq M|f(c)|.$$
+\end{enumerate}
+ \end{proof}

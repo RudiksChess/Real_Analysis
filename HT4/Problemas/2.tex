@@ -1,0 +1,41 @@
+\section{Problema 2.} Sea $f: \mathbb{R} \rightarrow \mathbb{R}$ una función que satisface $|f(x)-f(y)| \leq|x-y|^{2}$. Pruebe que $f$ es
+constante.
+
+\begin{proof}
+A probar: $f$ es constante. Nótese que la expresión se puede escribir como: 
+$$|f(x)-f(y)| \leq|x-y||x-y|$$
+
+Ahora bien, por el valor absoluto solo se están considerando los valores positivos; es posible dividir la expresión por $|x-y|$, preservando la desigualdad. 
+\begin{align*}
+    \implies & \frac{|f(x)-f(y)|}{|x-y|} \leq \frac{|x-y||x-y|}{|x-y|}\\
+    \implies & \frac{|f(x)-f(y)|}{|x-y|} \leq |x-y|\\
+    \implies & \left|\frac{f(x)-f(y)}{x-y}\right|\leq |x-y|
+\end{align*}
+Ahora, consideremos la definición 6.1.1 de \cite{bartle2000introduction},
+\begin{tcolorbox}[colback=blue!15,colframe=blue!1!blue,title=Definición 6.1.1. de \cite{bartle2000introduction}]
+Let $I \subseteq \mathbb{R}$ be an interval, let $f: I \rightarrow \mathbb{R}$, and let $c \in I$. We say that a real number $L$ is the derivative of $f$ at $c$ if given any $\varepsilon>0$ there exists $\delta(\varepsilon)>0$ such that if $x \in I$ satisfies $0<|x-c|<\delta(\varepsilon)$, then
+$$
+\left|\frac{f(x)-f(c)}{x-c}-L\right|<\varepsilon
+$$
+In this case we say that $f$ is differentiable at $c$, and we write $f^{\prime}(c)$ for $L$. In other words, the derivative of $f$ at $c$ is given by the limit
+$$
+f^{\prime}(c)=\lim _{x \rightarrow c} \frac{f(x)-f(c)}{x-c}
+$$
+provided this limit exists. (We allow the possibility that $c$ may be the endpoint of the interval.)
+\end{tcolorbox}
+Por las condiciones del problema, sabemos que el límite del lado izquierdo debe existir. Por lo cual, tenemos que dado $\epsilon>0$ existe $\delta(\epsilon)>0$, tal que:
+\begin{align*}
+    \implies  \underbrace{\lim_{x\to y-}\left|\frac{f(x)-f(y)}{x-y}\right|}_{\text{definición}}\leq \lim_{x\to y}|x-y|=0 \implies & f'(y) \leq 0\xRightarrow{y \text{ es un número arbitrario}} f'(y)=0.
+\end{align*}
+Entonces, ahora tomamos en cuenta el inciso 2 del teorema 5.11 de \cite{rudin1976principles}.
+\begin{tcolorbox}[colback=gray!15,colframe=gray!1!gray,title=Teorema 5.11 de \cite{rudin1976principles}]
+Suppose $f$ is differentiable in $(a, b)$.
+\begin{enumerate}
+    \item If $f^{\prime}(x) \geq 0$ for all $x \in(a, b)$, then $f$ is monotonically increasing.
+    \item If $f^{\prime}(x)=0$ for all $x \in(a, b)$, then $f$ is constant.
+    \item If $f^{\prime}(x) \leq 0$ for all $x \in(a, b)$, then $f$ is monotonically decreasing.
+\end{enumerate}
+\end{tcolorbox}
+$\therefore \ f$ es constante. 
+
+\end{proof}
