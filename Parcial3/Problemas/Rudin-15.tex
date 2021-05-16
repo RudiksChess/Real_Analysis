@@ -1,0 +1,17 @@
+\subsection{Capítulo 4: Problema 15}
+ Pruebe que cada mapeo continuo abierto de $R^1$ dentro de $R^1$ es monótono. 
+\begin{noter}{Mapeo abierto}
+Llámese un mapeo \textit{abierto} de $X$ dentro de $Y$,si $f(V)$ es un conjunto abierto en $Y$ cuando $V$ es un conjunto abierto de $X$.
+$$V\in X$$
+$$f(V)\in Y$$
+\end{noter}
+
+\begin{tcolorbox}[colback=blue!15,colframe=blue!1!blue,title=Definición 4.28 de monótono de \cite{rudin1976principles}]
+Sea $f$ real en $(a, b)$. Entonces $f$ se dice que es monótonamente creciente en $(a, b)$ si $a<x<y<b$ implica $f(x) \leq f(y)$. Si la última desigualdad es revertida, se obtiene la definición de una función monótonamente decreciente. La clase de funciones monótonas consisten de ambas: funciones monótonas crecientes y decrecientes.
+\end{tcolorbox}
+
+
+\begin{proof}
+ Supóngase que $f$ no es continua y no es monótona, por la definición de monótona de \cite{rudin1976principles} existen puntos $a<b<c$ con $f(a)<f(b)$ y $f(c)<f(b)$, definidos en los reales. Entonces el valor máximo de $f$ en el intervalo cerrado de $[a, c]$ se asume que es un punto de $u$ en el intervalo abierto $(a, c)$. Si además hay un punto $v$ en el intervalo abierto $(a, c)$ donde $f$ asume su valor mínimo en $[a, c]$, entonces $f(a, c)=[f(v), f(u)]$. Si ninguno de tales puntos $v$ existe,
+entonces $f(a, c)=(d, f(u)]$, donde $d=\min (f(a), f(c)) .$ Por lo que podemos concluir que en cualquier caso, $f((a, c))$ no es abierto.
+\end{proof}

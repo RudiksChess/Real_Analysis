@@ -1,0 +1,39 @@
+\subsection{Sección 5.2: Problema 14}
+
+Deje que $g:\mathbb{R}\to\mathbb{R}$ satisfaga la relación $g(x+y)=g(x)g(y)$ para todo $x,y$ en $\mathbb{R}$. Muestre que si $g$ es continua en $x=0$, entonces $g$ es continua en cada punto de $\mathbb{R}$. Además, si tenemos $g(a)=0$ para algún $a\in\mathbb{R}$, entonces $g(x)=0$ para todo $x\in\mathbb{R}$.
+
+\begin{tcolorbox}[colback=gray!15,colframe=gray!1!gray,title=Dato interesante]
+Consultando en la literatura, se encontró que $g(x+y)=g(x)g(y)$ forma parte de las ecuaciones funcionales de Cauchy. Precisamente, el caso exponencial. Se puede consultar más a detalle en el capítulo 10 de \cite{jung2011hyers}.
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=blue!15,colframe=blue!1!blue,title=Definición de continuidad de Bartle \& Sherbert]
+Sea $A\subseteq \mathbb{R}$, sea $f: A\to \mathbb{R}$, sea $c\in A$. Se dice que $f$ \textbf{es continuo en } $c$ si dado cualquier número $\epsilon>0$, existe $\delta>0$ tal que si $x$ es cualquier punto de $A$ que satisface $|x-c|<\delta$, entonces $|f(x)-f(c)|<\epsilon$.
+\end{tcolorbox}
+
+\begin{proof} Reordenando el problema, tenemos dos hipótesis: \textbf{(1)} $g$ es continua en $x=0$. \textbf{(2)} $g(a)=0$ para algún $a\in \mathbb{R}$. 
+A probar: \textbf{(1)} $g$ es continua en cada punto de $\mathbb{R}$. \textbf{(2)} $g(x)=0\ \forall x\in\mathbb{R}$. 
+
+\linita 
+
+Comenzamos con la segunda hipótesis, tenemos $g(a)=0$ para algún $a\in\mathbb{R}$. Proponemos arbitrariamente que $y:= x-a$, es decir $x:=y+a$, ahora bien: 
+$$g(x)=g(y+a)=g(y)g(a)=g(y)\cdot 0 = 0 $$
+Por lo tanto, si $g(a)=0$ para algún $a\in\mathbb{R}$, se cumple que $g(x)=0\ \forall x\in\mathbb{R}$.
+
+\linita 
+
+Por otra parte, por la primera hipótesis sabemos que $g$ es continua en $x=0$. $\implies$ Es necesario analizar el caso particular de $g(0)$ para determinar sus posibles valores y que $g(0)$ se mantenga continua, se propone encontrar sus \textit{puntos fijos}:
+\begin{gather*}
+    g(0)=g(0+0)=g(0)g(0)=g(0)^2
+\end{gather*}
+$\implies$ Para que $g(0)=g(0)^2$ se cumpla solo pueden ocurrir dos situaciones: (a) $g(0)=1$. (b) $g(0)=0$. 
+
+\linita 
+
+El caso (b) es trivial ya que siempre se cumple, por la primera hipótesis. El caso interesante surge del caso (a) cuando $g(0)=1$, tal que $g(c)\neq 0\ \forall c\in\mathbb{R}$. Se propone utilizar lo siguiente para determinar la continuidad de todos los puntos en $\mathbb{R}$: Basándonos en la definición de continuidad, sea $g$ una función continua en $c=0$, entonces dado $\epsilon>0$, existe $\delta>0$, tal que si $x$ es cualquier punto de $\mathbb{R}$ que satisface $|x-0|<\delta$, entonces $|g(x)-1|<\epsilon$. Nótese que como queremos encontrar la continuidad en todos los puntos $c$: 
+
+\begin{align*}
+    |g(x+c)-g(c)|&= |g(x)g(c)-g(c)|\\
+                &= |g(c)||g(x)-1|. 
+\end{align*}
+Esto quiere decir, si elegimos arbitrariamente un $\delta=\epsilon/|g(c)|$, entonces $|x|<\delta$ implica que $|g(x)-1|<|g(c)|\cdot(\epsilon/|g(c)|)=\epsilon$. $\therefore$ $g$ es continua en $c$.
+\end{proof}
