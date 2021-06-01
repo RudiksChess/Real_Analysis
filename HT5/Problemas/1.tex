@@ -1,11 +1,59 @@
 \section{Problema 1}
 
-Si $I$ es un intervalo y $f:I\to\mathbb{R}$ es convexa, entonces $f$ tiene derivadas laterales y por lo tanto es continua en todo punto $a\in I^{\circ}$. 
+Si $I$ es un intervalo y $f:I\to\mathbb{R}$ es convexa, entonces $f$ tiene derivadas laterales y por lo tanto es continua en todo punto $a\in I^{\circ}$ (int($I$)). 
 \newline
 
 De hecho: 
 $$f'(a^-)=\sup\{f_a(x):x\in I, x<a\} \quad \text{y} \quad f'(a^+)=\inf\left\{f_a(x):x\in I,x>a\right\}$$
 
+\begin{noter}{Notación}
+	Conjunto $F$, se define:
+	$$F:=f_a(x):x\in I, x<a$$
+\end{noter}
+\begin{tcolorbox}[colback=gray!15,colframe=gray!1!gray,title=Lema 2.3.4 de \cite{bartle2000introduction} ]
+	An upper bound $u$ of a nonempty set $S$ in $\mathbb{R}$ is the supremum of $S$ if and only if for every $\epsilon>0$ there exists an $s_\epsilon\in S$ such that $u-\epsilon<s_\epsilon$.
+\end{tcolorbox}
+\begin{tcolorbox}[colback=gray!15,colframe=gray!1!gray,title=Teorema 1.7 de \cite{tiel1984convex}]
+Theorem. Let $f: I \rightarrow \mathbb{R}$ be convex. Then\\
+(a) On int $(I), f_{-}^{\prime}$ is left-continuous and $f_{+}^{\prime}$ is right-continuous.
+
+	
+	\begin{proof}
+		
+		$$
+		\frac{f(y)-f(x)}{y-x}=\lim _{z \downarrow x} \frac{f(y)-f(z)}{y-z} \geqslant \lim _{z \downarrow x} f_{+}^{\prime}(z)
+		$$
+		whenever $x<z<y$. Passing to the limit as $y \downarrow x$, we obtain
+		$$
+		f_{+}^{\prime}(x) \geqslant \lim _{z \downarrow x} f_{+}^{\prime}(z) .
+		$$
+		6
+		Since $f_{+}^{\prime}$ is non-decreasing (Theorem 1.6) we have
+		$$
+		f_{+}^{\prime}(x) \leqslant \lim _{z \downarrow x} f_{+}^{\prime}(z) .
+		$$
+		We conclude that $f_{+}^{\prime}(x)=\lim _{z \downarrow x} f_{+}^{\prime}(z)$, which proves the right-continuity of $f_{+}^{\prime} .$ The left-continuity of $f_{-}^{\prime}$ can be proved in a similar way.
+		
+		\begin{noter}{Aclaración}
+			El teorema 1.6 que se menciona hace referencia al mismo teorema que se intentará demostrar. Sin embargo, en el libro citado, la demostración es una versión distinta y no utiliza supremo ni ínfimo.
+		\end{noter}
+	\end{proof}
+	
+\end{tcolorbox}
+
 \begin{proof}
-	content...
+	Por hipótesis, tenemos que $a\in I^{\circ}$. Además, sabemos por la \textbf{propiedad 1} (al principio del problema 2) que $f_a(x)=\frac{f(x)-f(a)}{x-a}$ es creciente en $I$. Ahora bien, sea $z\in I$, tal que $a<z$. Por lo que se tiene que: 
+	$$f_a(x)\leq f_a(z), \qquad x,z\in I, \quad x<a<z.$$
+	
+	
+	
+Entonces, ahora tenemos 2 casos (derivada por la izquierda y por la derecha):
+\begin{enumerate}
+	\item Derivada por la izquierda. Sea $f'(a^-)= \sup\left\{F\right\}$. Dado $\varepsilon>0$, por definición de supremo de Lema 2.3.4 de \cite{bartle2000introduction} que existe un  $x_{\varepsilon} \in I$ con $x_{\varepsilon}<a$ tal que $\sup\left\{F\right\}-\varepsilon<f_{a}\left(x_{\varepsilon}\right).$ Considérese: $\delta:=a-x_{\varepsilon}>0$, para $a-\delta<x<a$ por lo que se tiene: $$\sup\left\{F\right\}-\varepsilon<f_{a}\left(x_{\varepsilon}\right) \leq f_{a}(x) \leq \sup\left\{F\right\},$$ en donde $$\left|f_{a}(x)-\sup\left\{F\right\}\right|<\varepsilon .$$ 
+	Por lo tanto, $\lim _{x \rightarrow a-} f_{a}(x)=\sup\left\{F\right\}$. 
+	\item Derivada por la derecha. Sea $f'(a^+)= \inf\left\{F\right\}$. Usando la definición de supremo de Lema 2.3.4 de \cite{bartle2000introduction} para ínfimo, tenemos que existe un  $x_{\varepsilon} \in I$ con $x_{\varepsilon}>a$ tal que $\inf\left\{F\right\}-\varepsilon>f_{a}\left(x_{\varepsilon}\right).$ Considérese: $\delta:=a-x_{\varepsilon}>0$, para $a-\delta>x>a$ por lo que se tiene: $$\inf\left\{F\right\}-\varepsilon>f_{a}\left(x_{\varepsilon}\right) \geq f_{a}(x) \geq \inf\left\{F\right\},$$ en donde $$\left|f_{a}(x)-\inf\left\{F\right\}\right|<\varepsilon .$$ 
+	Por lo tanto, $\lim _{x \rightarrow a^+} f_{a}(x)=\inf\left\{F\right\}$. 
+\end{enumerate}
+Finalmente, por el teorema  1.8 de \cite{tiel1984convex} las derivadas laterales de la función son continuas en $I^{\circ}$. 
+	
 \end{proof}

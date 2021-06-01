@@ -1,0 +1,75 @@
+\section{Problema 2}
+\begin{tcolorbox}[colback=gray!15,colframe=gray!1!gray,title= Propiedad 1 ]
+	Sea $I$ un intervalo  y $f:I\to \mathbb{R}$ una función convexa. Para cada $a\in I$. Considere $f_a: I-\{a\}\to \mathbb{R}\ni $: 
+	$$f_a(x)=\frac{f(x)-f(a)}{x-a}.$$
+	Entonces, $f_a(x)$ es creciente en $I$. 
+\end{tcolorbox}
+Sea $I$ un intervalo y $f$ una función con primera derivada continua en $I$, los enunciados siguientes son equivalentes. 
+\begin{noter} {Nota}
+	(3)$\implies$ (1) $\iff$ (2). $\therefore (3) \implies (2)$.
+\end{noter}
+\begin{enumerate}
+	\item $f$ es convexa. 
+	\begin{proof}
+		(1)$\implies$ (2). Por hipótesis sabemos que $f:I\to\mathbb{R}$ es convexa y es diferenciable. Por la \textbf{propiedad 1} (demostrada en clase), $\forall \ x_1,x_2,x_3,x_4\in I$, $x_1<x_2<x_3<x_4$, se tiene que: 
+		$$\frac{f(x_2)-f(x_1)}{x_2-x_1}\leq \frac{f(x_3)-f(x_2)}{x_3-x_2}\leq \frac{f(x_4)-f(x_3)}{x_4-x_3} .$$
+		Es decir
+		$$\frac{f(x_2)-f(x_1)}{x_2-x_1}\leq\frac{f(x_4)-f(x_3)}{x_4-x_3}.$$
+		Ahora bien, como sabemos que $f$ es diferenciable, consideremos la definición de derivada lateral $\ \ni $
+		$$\lim_{x_2\to x_1^+}\frac{f(x_2)-f(x_1)}{x_2-x_1}\leq\lim_{x_3\to x_4^-}\frac{f(x_4)-f(x_3)}{x_4-x_3}\implies f'(x_1)\leq f'(x_4).$$
+		$\therefore \ f'$ es creciente. 
+	\end{proof}
+
+
+
+
+
+
+	\item $f'$ es creciente. 
+		\begin{proof}
+		(2)$\implies$ (1). Por hipótesis sabemos que $f'$ es creciente. Supóngase  $\forall x_1,x_2,x_2\in I$, $x_1<x_2<x_3$. Se tiene por el \textbf{teorema del valor medio} de \cite{bartle2000introduction}, $\exists \ u, v \ \ni u\in (x_1,x_2)$ y $v\in (x_2,x_3)$; entonces: 
+		$$f'(u)=\frac{f(x_2)-f(x_1)}{x_2-x_1}\qquad \text{y } \qquad f'(v)=\frac{f(x_3)-f(x_2)}{x_3-x_2} $$   
+		Como sabíamos que $f'$ es creciente, entonces: 
+		$$f'(u)\leq f'(v)\implies \frac{f(x_2)-f(x_1)}{x_2-x_1} \leq\frac{f(x_3)-f(x_2)}{x_3-x_2} .$$
+		$\therefore \ f$ es convexa por la \textbf{propiedad 1} (demostrada en clase).  
+	\end{proof}
+
+
+
+
+	\item $\forall \ a,x  \in I$, se tiene $f(x)\geq f(a)+f'(a)(x-a)$.
+		\begin{proof}
+		(3)$\implies$ (1). A probar que $f$ es una función convexa. Se propone tratar el problema con dos casos distintos para $x$.  Sean $s,t\in I $ y $\lambda\in [0,1]$, además $a:=\lambda y+ (1-\lambda)x$, es decir: 
+		
+		\begin{enumerate}
+			\item Caso 1. 
+			$$f(s)\geq f(a)+f'(a)(s-a), \qquad a:= \lambda s+(1-\lambda)t.$$
+			Entonces:
+			\begin{align*}
+				f(s) &\geq f(a)+f'(a)(s-a)\\
+				       &\geq f(\lambda s+(1-\lambda)t)+f'(\lambda s+(1-\lambda)t)(s-( \lambda s+(1-\lambda)t))\\
+				       &\geq f(\lambda s+(1-\lambda)t)+f'(\lambda s+(1-\lambda)t)(s-( \lambda s+t-\lambda t))\\
+				       &\geq  f(\lambda s+(1-\lambda)t)+f'(\lambda s+(1-\lambda)t)(s- \lambda s -t+\lambda t)\\
+				       &\geq  f(\lambda s+(1-\lambda)t)+f'(\lambda s+(1-\lambda)t)(s-t)(1-\lambda)\\
+				       &\geq  f(\lambda s+(1-\lambda)t)-f'(\lambda s+(1-\lambda)t)(t-s)(1-\lambda)
+				       \intertext{Ahora, multiplicando por $\lambda$. }
+				    \lambda f(s)  &\geq  \lambda \left[f(\lambda s+(1-\lambda)t)-f'(\lambda s+(1-\lambda)t)(t-s)(1-\lambda)\right].
+			\end{align*}
+			\item Caso 2. 
+			$$f(t)\geq f(a)+f'(a)(t-a), \qquad a:= \lambda s+(1-\lambda)t.$$
+			Entonces: 
+			\begin{align*}
+				f(t) &\geq f(a)+f'(a)(t-a)\\
+				&\geq f(\lambda s+(1-\lambda)t)+f'(\lambda s+(1-\lambda)t)(t-( \lambda s+(1-\lambda)t))\\
+				&\geq f(\lambda s+(1-\lambda)t)+f'(\lambda s+(1-\lambda)t)(t-\lambda s-t+\lambda t)\\
+				&\geq f(\lambda s+(1-\lambda)t)+f'(\lambda s+(1-\lambda)t)\lambda (t-s)
+				\intertext{Ahora, multiplicando por $(1-\lambda)$. }
+					(1-\lambda)f(t) &\geq (1-\lambda) \left[f(\lambda s+(1-\lambda)t)+f'(\lambda s+(1-\lambda)t)\lambda (t-s)\right].
+			\end{align*}
+		Si sumamos las desigualdades de ambos casos, tenemos: 
+		$$\lambda f(s)  +	(1-\lambda)f(t) \geq f( \lambda s+(1 -\lambda)t).$$
+		Por lo tanto, $f$ es convexa.
+		\end{enumerate}
+
+	\end{proof}
+\end{enumerate}

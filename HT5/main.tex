@@ -2,10 +2,40 @@
 \begin{document}
 \input{Configuraciones/nombres}
 %--------------------------
+Las siguientes definiciones/teoremas (demostrados) fueron vistos en clase: 
+\begin{tcolorbox}[colback=blue!15,colframe=blue!1!blue,title=Definición de funciones convexas]
+	Sea $f : I \to \mathbb{R}$ se dice que $f$ es convexa sobre $I$, si $\forall \ s,t \in I$ y $\lambda\in [0,1]$, se tiene que: 
+	$$f( \lambda s+(1 -\lambda)t) \leq \lambda f(s)+ (1 - \lambda)f(t).$$
+	\begin{enumerate}
+		\item $f$ es función cóncava sobre $I$ si $-f$ es convexa sobre $I$.
+	\end{enumerate}
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=gray!15,colframe=gray!1!gray,title=Teorema (Desigualdad de Jensen)]
+	Sea $f$ una función convexa y $w_1,w_2,\cdots, w_n$, tal que: 
+	\begin{enumerate}
+		\item $w_j\geq 0$.
+		\item $\sum_{j=1}^{n}w_j =1$. 
+	\end{enumerate}
+Entonces para $x_1,x_2,\cdots, x_n$, se cumple: 
+$$f\left(w_1x_1+w_2x_2+\cdots + w_nx_n\right)\leq w_1f(x_1)+\cdots +w_nf(x_n).$$
+Que es igual a 
+$$f\left(\sum_{j=1}^{n}w_jx_j\right)\leq \sum_{j=1}^{n}w_jf(x_j).$$
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=gray!15,colframe=gray!1!gray,title=Lema (De las tres cuerdas)]
+	Sea $f:I\to\mathbb{R}$, entonces $f$ es convexa si y solo si $\forall \ x_1,x_2,x_3\in I$, $x_1<x_2<x_3$, se tiene que: 
+	$$\frac{f(x_2)-f(x_1)}{x_2-x_1}\leq \frac{f(x_3)-f(x_1)}{x_3-x_1}\leq \frac{f(x_3)-f(x_2)}{x_3-x_2}.$$
+\end{tcolorbox}
+
+
+
 
 \input{/Users/rudiks/Git/Real_Analysis/HT5/Problemas/1.tex}
+\input{/Users/rudiks/Git/Real_Analysis/HT5/Problemas/2.tex}
+\input{/Users/rudiks/Git/Real_Analysis/HT5/Problemas/3.tex}
 %---------------------------
-%\bibliographystyle{apalike}
-%\bibliography{sample.bib}
+\bibliographystyle{apalike}
+\bibliography{sample.bib}
 
 \end{document}
