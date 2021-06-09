@@ -1,0 +1,55 @@
+\input{Configuraciones/paquetes}
+\begin{document}
+\input{Configuraciones/nombres}
+%--------------------------
+Las siguientes definiciones/teoremas (demostrados) fueron vistos en clase: 
+
+\begin{tcolorbox}[colback=blue!15,colframe=blue!1!blue,title=Homeomorfismo]
+	Un homeomorfismo es una función bicontinua y biyectiva entre dos espacios topológicos. Es decir:
+	$$f:(x,\tau_{x})\to (y, \tau_{y}).$$
+	$\implies f $ es homeomorfismo si y solo si: 
+	\begin{enumerate}
+		\item $f$ es continua. 
+		\item $f$ es biyectiva (i.e $f$ tiene inversa).
+		\item La inversa de $f$ es continua.
+	\end{enumerate} 
+En este caso, $x$ y $y$ son espacios homeomorfos, es decir topológicamente indistinguibles. 
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=blue!15,colframe=blue!1!blue,title=Definición de continuidad]
+Sea $f:A\subseteq \mathbb{R}\to\mathbb{R}$  y sea 
+$x_0 \in A$. Se dice que $f$ es continua en $x_0$, si $\lim_{x\to x_0} f(x)=f(x_0)$. (i.e. Si $\forall \ \varepsilon>0 \ \exists \ \delta >0 \ni \ $ si $x\in A$, $|x-x_0|<\delta \implies |f(x)-f(x_0)|<\varepsilon$.  )
+\end{tcolorbox}
+
+
+\begin{tcolorbox}[colback=blue!15,colframe=blue!1!blue,title=Definición de continuidad uniforme]
+	Una función $f:A\subset \mathbb{R}\to \mathbb{R}$ es uniformemente continua sobre $A$ si, $\forall \ \varepsilon \ \exists \ \delta >0 \ni  x, x'\in A, |x-x'|<\delta \implies |f(x)-f(x')| <\varepsilon$. 
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=blue!15,colframe=blue!1!blue,title=Definición de Lipschitz]
+	
+	Si $f:I\to \mathbb{R}\to \mathbb{R}$, se dice que $f$ es Lipschitz, si $\exists \ A>0 \ni $
+	$$|f(x)-f(x')|\leq A|x-x'|, \forall x,x' \in I.$$
+\end{tcolorbox}
+
+
+\begin{tcolorbox}[colback=blue!15,colframe=blue!1!blue,title=Definición de punto fijo]
+$x_0$ es un punto fijo de una función $f$ si y solo si $f(x_0)=x_0$.
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=gray!15,colframe=gray!1!gray,title=Teorema del Valor Intermedio - Bolzano (Demostrado en clase) ]
+	Sea $H$ un subconjunto de $\mathbb{R}$ y sea $f$ una función continua y acotada sobre $H$ con valores en $\mathbb{R}$. Si $k\in\mathbb{R}\ni$
+	$$\inf\{f(x):x\in H\}<k<\sup\{f(x): x\in H\}.$$
+	$\implies \ \exists \ c\in H \ni f(c)=k.$
+\end{tcolorbox}
+
+\input{/Users/rudiks/Git/Real_Analysis/HT6/Problemas/1.tex}
+\input{/Users/rudiks/Git/Real_Analysis/HT6/Problemas/2.tex}
+\input{/Users/rudiks/Git/Real_Analysis/HT6/Problemas/3.tex}
+\input{/Users/rudiks/Git/Real_Analysis/HT6/Problemas/4.tex}
+\input{/Users/rudiks/Git/Real_Analysis/HT6/Problemas/5.tex}
+%---------------------------
+\bibliographystyle{apalike}
+\bibliography{sample.bib}
+
+\end{document}
