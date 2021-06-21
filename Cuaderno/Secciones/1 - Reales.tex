@@ -210,7 +210,7 @@ Nótese que $C$ está acotado superiormente. En efecto, si $a\in C\implies a^2<4
 \begin{ejemplo}
 	\item Considere $\left(\frac{1}{n}\right)$. 
 	\begin{center}
-		\includegraphics[scale=0.2]{/Users/rudiks/Desktop/Plantilla/images/1/unovern.png}
+		\includegraphics[scale=0.2]{images/1/unovern.png}
 	\end{center}
 $\implies \inf\left(\frac{1}{n}\right)=0$. 
 \end{ejemplo}
@@ -241,7 +241,7 @@ $$\sup \emptyset =-\infty \text{ e } \inf \emptyset = \infty$$
 \end{cajita}
 
 \begin{nota}
-	En todo caso, se dice que el $\sup A$ e $\inf A$ existen si son un úmero finito. 
+	En todo caso, se dice que el $\sup A$ e $\inf A$ existen si son un número finito. 
 \end{nota}
 
 \subsection{Espacios métricos}
@@ -253,10 +253,10 @@ $$\sup \emptyset =-\infty \text{ e } \inf \emptyset = \infty$$
 	\begin{enumerate}
 		\item Positividad. $d(a,b)\geq 0$; $d(a,b)=0\iff a=b$. 
 		\item Simetría. $d(a,b)=d(b,a)$. 
-		\item Desigualdad triiangular. $d(a,b)\leq d(a,c)+d(c,d)$, entonces ($X,d$) es un espacio métrico y $d$ es una métrica sobre $X$ o una distancia sobre $X$. 	\end{enumerate}
+		\item Desigualdad triangular. $d(a,b)\leq d(a,c)+d(c,d)$, entonces ($X,d$) es un espacio métrico y $d$ es una métrica sobre $X$ o una distancia sobre $X$. 	\end{enumerate}
 \end{definicion}
 
-\begin{prop}[Reordonamiento de la desigualdad triangular]
+\begin{prop}[Reordenamiento de la desigualdad triangular]
 	Si $(X,d)$ es un espacio métrico y si $a,b,c\in X$, entonces: 
 	$$|d(a,b)-d(b,c)|\leq d(a,c).$$
 \end{prop}
@@ -265,7 +265,7 @@ $$\sup \emptyset =-\infty \text{ e } \inf \emptyset = \infty$$
 	\begin{enumerate}
 		\item Sea $X=\mathbb{R}$ y $d_1:\mathbb{R}\times \mathbb{R}\to \mathbb{R}\ni d_1(a,b)=|a-b|$. $\implies (\mathbb{R},d_1)$ es un espacio métrico. En efecto, sean $a,b,c\in \mathbb{R}$. Entonces: 
 		\begin{enumerate}
-			\item Pior definición, $d_1(a,b)=|a-b|\geq 0$. 
+			\item Por definición, $d_1(a,b)=|a-b|\geq 0$. 
 			\begin{enumerate}
 				\item Si $d(a,b)= |a-b|=0\implies a-b=0\implies a=b$. 
 				\item Si $a=b\implies d(a,b)=|a-a|=|0|=0$.
@@ -282,7 +282,7 @@ $$\sup \emptyset =-\infty \text{ e } \inf \emptyset = \infty$$
 \begin{ejemplo}[Métrica Euclidiana en $\mathbb{R}^n$]
 	Sea $X=\mathbb{R}^n$ y sean: 
 	$x=(x_1,\cdots, x_n), y=(y_1,\cdots, y_n)\in \mathbb{R}^n$. Definamos: $d_2:\mathbb{R}^n\times \mathbb{R}^n\to \mathbb{R}\ni$ 
-$$d_2(x,y)=\sqrt{\sum_{i=1}^{n}}\left(x_i-y_i\right)^2.$$
+$$d_2(x,y)=\sqrt{\sum_{i=1}^{n}\left(x_i-y_i\right)^2}.$$
 $\implies (\mathbb{R}^n, d_2)$ es métrica. 
 \end{ejemplo}
 
@@ -316,7 +316,7 @@ $\implies (\mathbb{R}^n, d_2)$ es métrica.
 	$\implies$ Dadas $f,g\in l^{\infty}[a,b]$. 
 	
 	\begin{center}
-		\includegraphics[scale=0.5]{/Users/rudiks/Desktop/Plantilla/images/1/2.png}
+		\includegraphics[scale=0.5]{images/1/2.png}
 	\end{center}
 $\implies d_\infty(f,g)=\sup \left\{|f(x)-g(x)|\right\}$, la cual es una métrica en $l^{\infty}[a,b]$ y se llama métrica o distancia del supremo.
 \end{ejemplo}
@@ -327,7 +327,7 @@ $\implies d_\infty(f,g)=\sup \left\{|f(x)-g(x)|\right\}$, la cual es una métric
 \end{ejemplo}
 
 \begin{definicion}
-Suponga que $V$ es un espacio vectorail sobre el campo $\mathbb{F}$ ($\mathbb{R}$ o $\mathbb{C}$) y que: 
+Suponga que $V$ es un espacio vectorial sobre el campo $\mathbb{F}$ ($\mathbb{R}$ o $\mathbb{C}$) y que: 
 $$\lVert \cdot \rVert: V\to \mathbb{R}\ni $$
 $\forall x,y\in V$ y $\alpha \in\mathbb{F}$ se cumplen: 
 \begin{enumerate}
@@ -356,3 +356,7 @@ Entonces, $\lVert \cdot \rVert$ es una norma sobre $V$ y decimos que $(V, \lVert
 		\item $d(x,y)= \lVert x-y\rVert = \lVert (x-z)+(z-y)\rVert \leq \lVert x-<\rVert + \lvert z-y \rVert = d(x,z)+d(z,y)$. $\implies$ $d(x,y)=\lVert x-y\rVert$ es una métrica sobre $V$. Esta es la métrica inducida por la norma.
 	\end{enumerate}
 \end{nota}
+
+\subsection{HT1}
+
+\includepdf[pages=-]{Apendices/HT1.pdf}
