@@ -1,0 +1,87 @@
+\section{Sucesiones}
+
+\begin{definicion}
+	Una sucesión es cualquier función cuyo dominio es un conjunto infinito contable, i.e. $\mathbb{Z}^+, \mathbb{N},\mathbb{Q}$. 
+\end{definicion}
+
+\begin{ejemplo}
+	$f:\mathbb{Z}^+\to\mathbb{R}\ni f(n)=\sen n$ es una sucesión. 
+\end{ejemplo}
+
+\begin{definicion}
+	Se dice que la sucesión $(a_n)$ converge al número $l$, denotado $a_n\to l$, si $\forall \varepsilon >0\exists N\in\mathbb{Z}^+\ni$ si $n\geq N\implies |a_n-l|<\varepsilon$. 
+\end{definicion}
+\begin{nota}
+	Si existe $l$, entonces es el límite de $(a_n)$. Notación: $$\lim_{n\to\infty} a_n=l.$$
+\end{nota}
+
+\begin{ejemplo}
+	Compruebe que $\lim_{n\to\infty}\frac{1}{n}=0$. 
+	\begin{center}
+		\includegraphics[scale=0.4]{images/4/1}
+	\end{center}
+\end{ejemplo}
+\begin{sol}
+	Dado $\varepsilon>0\exists N=\underline{1/\varepsilon}\in \mathbb{Z}^+\ni $ si $n\geq N\implies \left|\frac{1}{n}-0\right|<\varepsilon\implies \left|\frac{1}{n}-0\right|=\left|\frac{1}{n}\right|=\frac{1}{n}<\varepsilon\implies n>\frac{1}{\varepsilon}$.
+\end{sol}
+
+\begin{teorema}
+	El límite de una sucesión, si existe, es único. 
+\end{teorema}
+\begin{proof}
+	Suponemos que $a_n\to l$ y $a_n\to l'$. 
+	\begin{enumerate}
+		\item Como $a_n\to l\implies$ Dado $\varepsilon >0\exists N_1\in \mathbb{Z}^+\ni$ si $n\geq N_1\implies |a_n-l|<\varepsilon/2$. 
+		\item Como $a_n\to l'\exists N_2\in \mathbb{Z}^+\ni$ si $n\geq N_2$, entonces $|a_n-l|'<\varepsilon/2$.
+		\item Sea $N=\max\{N_1,N_2\}\implies$ para $n\geq N$, se cumple: 
+		$$|l-l'|=|l-a_n+a_n-l'|=|(l-a_n)+(a_n-l')|\leq \underbrace{|l-a_n|}_{|a_n-l|}+|a_n-l'|<\varepsilon/2+\varepsilon/2=\varepsilon.$$
+		i.e. $|l-l'|<\varepsilon$. Por la arbitrariedad de $\varepsilon \implies l=l'$. 
+		\begin{cajita}
+			$|l-l'|\leq \inf\{\in: \in >0\}$
+		\end{cajita}
+	\end{enumerate}
+\end{proof}
+
+\begin{teorema}
+	Una sucesión convergente es acotada. 
+\end{teorema}
+\begin{proof}
+	Como $a_n\to l\implies$ Dado $\underline{\varepsilon=1}\exists N\in\mathbb{Z}^+\ni$ si $n\geq N\implies |a_n-l|<1$. Entonces, $|a_n|-|l|\leq \left||a_n|-|l|\right|\leq |a_n-l|<1\implies |a_n|-|l|<1\implies |a_n|<|l|+1, \forall n\geq N$. $\implies$ Hagamos $M=\max\{|x_1|,|x_2|,\cdots, |x_{n-1}|, \underbrace{|l|+1}_{|a_n|, \forall n\geq N}\}$. $\implies |a_n|\leq M, \forall n\in \mathbb{Z}^+$. $\implies (a_n)$ es acotada. 
+\end{proof}
+
+\begin{teorema}
+	Si $a_n\to l\implies |a_n|\to|l|$. 
+\end{teorema}
+
+\begin{proof}
+	Si $a_n\to l\implies \forall \varepsilon >0\exists N\in Z^+\ni$ si $n\geq N\implies |a_n-l|<\varepsilon$. Por desigualdad triangular: $$\left||a_n|-|l|\right|<|a_n-l|<\varepsilon\implies ||a_n|-|l||<\varepsilon\implies |a_n|\to|l|.$$
+\end{proof}
+
+\begin{teorema}
+	Sean $(a_n)$ y $(b_n)$ sucesiones convergentes tal que $a_n\to l$ y $b_n\to l'$. Entonces: 
+	\begin{enumerate}
+		\item $(a_n+b_n)\to l+l'$. 
+		\item $(a_n\cdot b_n)\to l\cdot l'$. 
+	\end{enumerate}
+\end{teorema}
+\begin{proof}
+	\begin{enumerate}
+		\item Sea $\varepsilon>0\implies \exists N_1\in \mathbb{Z}^+ \ni$ Si $n\geq N\implies |a_n-l|<\varepsilon/2\implies \exists N_2\in \mathbb{Z}^+\in$ si $n\geq N_2\implies |b_n-l'|<\varepsilon/2$. 
+		Hagamos $N=\max\{N_1,N_2\}$. Entonces, se tiene: 
+		$|(a_n+b_n)-(l+l')|=|(a_n-l)+(b_n-l')|\leq |a_n-l|+|b_n-l'|<\varepsilon/2+\varepsilon/2=\varepsilon, \quad \forall n\geq N$. $\implies (a_n+b_n)\to l+l'$. 
+		\item \begin{enumerate}
+			\item $|a_nb_n-l\cdot l'|= |a_nb_n-a_nl'+a_nl'-l\cdot l'|=|a_n(b_n-l')+(a_n-l)\cdot l'|\leq |a_n(b_n-l')|+|(a_n-l)\cdot l'|=|a_n|\cdot |b_n-l'|+|a_n-l|\cdot |l'|$.
+			\item Como $a_n$ es convergente. $\implies a_n$ es acotada. $\implies \exists M'\geq 0 \ni |a_n|\leq M', \forall n\in Z^+$. 
+			\item Hagamos $M=\max\{M',|l'|\}$
+			\item Como $a_n\to l$ y $b_n\to l'$, entonces $\forall \varepsilon >0$, \begin{enumerate}
+				\item $\exists N_1\in \mathbb{Z}^+\ni$ si $n\geq N_1\implies |a_n-l|<\varepsilon$.
+				\item $\exists N_2 \in \mathbb{Z}^+\ni$ si $n\geq N_2\implies |b_n-l'|<\varepsilon$. 
+			\end{enumerate}
+		\item Hacemos $N=\max\{N_1,N_2\}$. Entonces:
+		$$|a_n\cdot b_n-l\cdot l'|\leq |a_n|\cdot |b_n-l'|+|a_n-l|\cdot |l'|<M\cdot \frac{\varepsilon}{2M}+\frac{\varepsilon}{2M}M=\varepsilon, n\geq N.$$
+		$\implies a_nb_n\to l\cdot l'$. 
+		\end{enumerate}
+	\end{enumerate}
+\end{proof}
+
+
