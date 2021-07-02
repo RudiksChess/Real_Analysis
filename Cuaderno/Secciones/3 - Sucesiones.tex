@@ -85,3 +85,69 @@
 \end{proof}
 
 
+\begin{teorema}
+	Si $(a_n)$ converge a $l$, $l\neq 0$, entonces $a_n\neq 0$ a partir de algún $N\in\mathbb{Z}^+$ y $$\frac{1}{a_n}\to \frac{1}{l}.$$
+\end{teorema}
+
+\begin{proof}
+	Por hipótesis: $a_n\to l\implies |a_n|\to |l|$. Sea $\underline{\varepsilon= |l|/2}\implies \exists N\in \mathbb{Z}^+\ni$ si $n\geq N$, entonces $\textcolor{red}{\underbrace{\left||a_n|-|l|\right|}}<|l|/2 \implies -\left(|a_n|-|l|\right)<|l|/2 \implies -|a_n|+|l|<|l|/2 \implies \underbrace{|l|/2<|a_n|}_{1/|a_n|<2/|l|}, \forall n\geq N$. 
+	$$\left|\frac{1}{a_n}-\frac{1}{l}\right|=\left|\frac{l-a_n}{a_n\cdot l}\right|=\frac{|l-a_n|}{|a_n|\cdot |l|}=\frac{|a_n-l|}{|a_n|\cdot |l|}<\frac{|a_n-l|(2)}{|l|\cdot |l|}=\frac{2\textcolor{red}{\overbrace{|a_n-l|}}}{den}$$
+	$\implies 1/a_n \to 1/l$.
+\end{proof}
+
+\begin{teorema}
+	\begin{enumerate}
+		\item Si $(a_n)$ es una sucesión de términos no negativos $\ni a_n\to l\implies l$ es no negativo. 
+		\item Si $a_n\to l$ y $b_n\to l'$, con $a_n\leq b_n, \forall n\in\mathbb{Z}^+\implies l\leq l'$.
+	\end{enumerate}
+\end{teorema}
+
+\begin{corolario}
+	Si $a_n\to l$ y si $\alpha \in\mathbb{R}\implies \alpha a_n\to \alpha l$. 
+\end{corolario}
+
+\begin{ejemplo}
+	Demuestre que $\lim_{n\to\infty} \frac{n-1}{n+1}=1$.
+\end{ejemplo}
+\begin{sol}
+	Dado $\varepsilon>0\exists N=\underline{2/\varepsilon}\in\mathbb{Z}^+\ni $ si $n\geq N\implies \left|\frac{n-1}{n+1}-1\right|<\varepsilon$.
+	$$\left|\frac{n-1}{n+1}-1\right|=\left|\frac{n-1-(n+1)}{n+1}\right|=\left|\frac{-2}{n+1}\right|=\frac{2}{n+1}<\frac{2}{n}<\varepsilon.$$
+	$$\implies \frac{n}{2}>\frac{1}{\varepsilon}\implies n>2/\varepsilon.$$
+\end{sol}
+\begin{ejemplo}
+	Compruebe que $\lim_{n\to\infty}\left[\sqrt{n+1}-\sqrt{n}\right]=0$.
+\end{ejemplo}
+\begin{sol}
+	Dado $\varepsilon>0\exists N=\underline{1/(4\varepsilon^2)}\in \mathbb{Z}^+ni$ si $n\geq N\implies \left|\left(\sqrt{n+1}-\sqrt{n}\right)-0\right|<\varepsilon$.
+	
+	$\implies \left|\sqrt{n+1}-\sqrt{n}\right|=\sqrt{n+1}-\sqrt{n}=\left(\sqrt{n+1}-\sqrt{n}\right)\left(\frac{\sqrt{n+1}+\sqrt{n}}{\sqrt{n+1}+\sqrt{n}}\right)=\frac{(n+1)-n}{\sqrt{n+1}+\sqrt{n}}=\frac{1}{\sqrt{n+1}+\sqrt{n}}<\frac{1}{2\sqrt{n}}<\varepsilon\implies 2\sqrt{n}>1/\varepsilon\implies \sqrt{n}>1/2\varepsilon \implies n>1/(4\varepsilon^2).$ 
+\end{sol}
+\begin{nota}
+	Considere las sucesiones: $a_n=n$ y $b_n=(-1)^n$. Ambas sucesiones divergen (i.e no converge). 
+\end{nota}
+
+\begin{definicion}
+	Se dice que $(a_n)$ tiende a infinito ($\lim_{n\to\infty}a_n=\infty$), si $\forall M>0\exists n\in\mathbb{Z}^+\ni a_n>M$. 
+	\begin{nota}
+		La acotación de una sucesión no asegura convergencia. 
+	\end{nota}
+\end{definicion}
+
+\begin{teorema}
+	Suponga $(x_n), (y_n), (z_n)$ son sucesiones de números reales tal que 
+	$$x_n\leq y_n\leq z_n, \quad \forall n\in \mathbb{Z}^+.$$
+	Si $\lim x_n=\lim z_n\implies (y_n)$ converge y $\lim x_n =\lim y_n=\lim z_n$. 
+\end{teorema}
+
+\begin{proof}
+ Supóngase que $\lim_{n\to\infty}x_n=\lim_{n\to\infty}z_n=w$. Si $\varepsilon>0\implies \exists N\in \mathbb{Z}^+\ni |x_n-w|<\varepsilon$ y $|z_n-w|<\varepsilon$. 
+ \begin{cajita}
+ 	\begin{enumerate}
+ 		\item Si $\varepsilon>0\exists N_1\in \mathbb{Z}^+\ni |x_n-w|<\varepsilon, \forall n\geq N_1$. 
+ 		\item Si $\varepsilon>0\exists N_2\in \mathbb{Z}^+\ni |x_n-w|<\varepsilon, \forall n\geq N_2$. 
+ 	\end{enumerate}
+ $\implies$ Hagamos $N=\max\{N_1,N_2\}$. 
+ \end{cajita}
+Como $x_n\leq y_n\leq z_n\implies x_n-w\leq y_n-w\leq z_n-w, \ \forall n\in\mathbb{Z}^+$. Nótese que: $-\varepsilon<x_n-w<\varepsilon$, y que: $-\varepsilon<z_n-w<\varepsilon$. $\implies -\varepsilon<x_n-w\leq y_n-w\leq z_n-w<\varepsilon\implies -\varepsilon<y_n-w<\varepsilon \iff |y_n-w|<\varepsilon, \forall n\geq N$. $\implies$ Por la arbitrariedad de $\varepsilon$, $\lim_{n\to\infty}y_n=w$. $\implies \lim_{n\to\infty}x_n=\lim_{n\to\infty}y_n=\lim_{n\to\infty}z_n$. 
+\end{proof}
+
